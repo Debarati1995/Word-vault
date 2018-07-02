@@ -1,0 +1,18 @@
+<div>
+  <div class="page-header header">
+    <h1> <small>Your Turn: Vocabulary</small></h1>
+  </div>
+  <section class="content-wrapper">
+    <app-question></app-question>
+    <app-answer></app-answer>
+    <app-validation></app-validation>
+  </section>
+  
+  <div class="footer">
+    <div *ngFor="let screen of screenIndicators" [ngClass]="{'active-screen': screen.isActive}">
+      <!-- <span ></span> -->
+    </div>
+  </div>
+</div>
+
+
