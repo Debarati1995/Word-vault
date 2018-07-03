@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { QuestionAnswerService } from '../question-answer.service';
 @Component({
   selector: 'app-validation',
   templateUrl: './validation.component.html',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValidationComponent implements OnInit {
 
-  constructor() { }
+  currentIndex=0;
+  constructor(private service: QuestionAnswerService) { }
 
-  ngOnInit() {
+  ngOnInit() {   
+  }
+  validate() {
+    this.currentIndex++;
+    const data = {
+      index: this.currentIndex,
+      round: 'ro'
+    }
+    this.service.index.next({ index:this.currentIndex});
   }
 
 }

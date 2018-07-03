@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionAnswerService } from '../question-answer.service';
+import {
+  Subscription
+} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-question',
@@ -9,15 +12,30 @@ import { QuestionAnswerService } from '../question-answer.service';
 export class QuestionComponent implements OnInit {
 
   questions = [];
+  responseData;
+  index = 0;
+  round = 'round1';
+  indexSubscription: Subscription;
   constructor(private service: QuestionAnswerService) { }
 
   ngOnInit() {
+    this.indexSubscription = this.service.index.subscribe((data: any) => {
+      console.log(data);
+      this.index = data.index;
+    } 
+    );
     this.service.getJsonData();
-    console.log(this.service.response);
-    // this.service.response.rounds.forEach (elem => {
-    //   console.log(elem);
-    // });
-    // this.questions = this.service.response.rounds
+    this.responseData = this.service.response;
+   console.log(this.responseData);
+   for (let i in this.responseData.rounds) {
+     if (this.round === i) {
+       this.responseData.rounds[i].questions.forEach(e => {
+         this.questions.push(e.text);
+       });
+       console.log(this.questions);
+      }     
+     
+    }
   }
 
 }
