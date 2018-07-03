@@ -8,11 +8,16 @@ import { QuestionAnswerService } from '../question-answer.service';
 })
 export class QuestionComponent implements OnInit {
 
+  questions = [];
   constructor(private service: QuestionAnswerService) { }
 
   ngOnInit() {
     this.service.getJsonData();
     console.log(this.service.response);
+    // this.service.response.rounds.forEach (elem => {
+    //   console.log(elem);
+    // });
+    // this.questions = this.service.response.rounds
   }
 
 }

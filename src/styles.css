@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 .header {
     padding-left: 8rem;
-    background-color: #f31212;
+    background-color: crimson;
     color: beige!important;
     position: absolute;
     width: 100%;
@@ -16,7 +16,7 @@
     bottom: 0;
     width: 100%;
     left: 0;
-    background-color: #f31212;
+    background-color: crimson;
     height: 8rem;
     border-top: 4px solid #FFC107;
     z-index: 1;
@@ -37,15 +37,16 @@
  }
  .content-wrapper {
     position: absolute;
-    top: 8rem;
-    background-color: #b1aeaef7;
+    top: 6rem;
+    background-color: #f1e78e6b;
     width: 100%;
-    height: 76vh;
+    height: 80vh;
+
  }
  .question-container {
      position: absolute;
      left: 10%;
-     top: 1rem;
+     top: 2rem;
      border: 5px solid #676565;
      width: 80%;
  }
@@ -70,12 +71,12 @@
  }
 
  .validation-container>button {
-    background-color: #03a9f4;
+    background-color: #009688;
     outline: none;
-    border-radius: 10%;
-    border: 3px solid #e6e6e2;
-    color: #e6e6e2;
+    border: none;
+    color: #e7eef1;
     font-size: 1.7rem;
     width: 8rem;
+    height: 3rem;
     
  }
