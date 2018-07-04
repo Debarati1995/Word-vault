@@ -1,18 +1,23 @@
 <div>
-  <div class="page-header header">
-    <h3>Your Turn: Vocabulary</h3>
-  </div>
-  <section class="content-wrapper">
-    <app-question></app-question>
-    <app-answer></app-answer>
-    <app-validation></app-validation>
-  </section>
-  
-  <div class="footer">
-    <div *ngFor="let screen of screenIndicators" [ngClass]="{'active-screen': screen.isActive}">
-      <!-- <span ></span> -->
+
+    <div class="page-header header">
+        <h3>Your Turn: Vocabulary</h3>
+        <div class="button-container">
+            <button class="help-button">?</button>
+            <button class="exit-button">X</button>
+        </div>
     </div>
-  </div>
+
+    <section class="content-wrapper">
+        <p class="instruction">Read each sentence. Choose the vocabulary word that best completes the sentence. </p>
+        <app-question [currentQuestion]="questions[index]"></app-question>
+        <app-answer [currentAnswer]="answers[index]"></app-answer>
+        <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]"></app-validation>
+    </section>
+
+    <div class="footer">
+        <div *ngFor="let screen of screenIndicators" [ngClass]="{'active-screen': screen.isActive}">
+            <!-- <span ></span> -->
+        </div>
+    </div>
 </div>
-
-

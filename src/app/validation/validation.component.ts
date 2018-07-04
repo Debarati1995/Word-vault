@@ -1,43 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter ,OnInit,Input} from '@angular/core';
 import { QuestionAnswerService } from '../question-answer.service';
+import {
+  Subscription
+} from 'rxjs/Subscription';
+
 @Component({
   selector: 'app-validation',
   templateUrl: './validation.component.html',
   styleUrls: ['./validation.component.css']
 })
 export class ValidationComponent implements OnInit {
-
-  currentIndex = 0;
+  @Output()
+  currentIndex: EventEmitter<any> = new EventEmitter();
+  @Input() currentQuestion: any;
   responseData;
-  round = '';
-  page = 1;
+  index = 0;
+  ansIndex :number;
+  indexSubscription: Subscription;
   constructor(private service: QuestionAnswerService) { }
-
+ 
   ngOnInit() {
-    this.service.getJsonData();
-    this.responseData = this.service.response;
-    this.round = 'round' + this.page;
-    console.log(this.round);
+    this.indexSubscription = this.service.index.subscribe((data: any) => {
+      this.ansIndex = data.index;
+    });
   }
   validate() {
-    this.currentIndex++;
-    for (const i in this.responseData.rounds) {
-      if (this.round === i) {
-        if (this.responseData.rounds[i].questions.length === this.currentIndex) {
-          this.page++;
-          this.round = i;
-          return this.round;
-        }
-        // console.log(this.answers);
-      } else {
-      }
+    this.index++;
+    this.currentIndex.emit(this.index);
+    console.log(this.currentQuestion.correctAnswer);
+    // debugger;
+    if (parseInt(this.currentQuestion.correctAnswer) === this.ansIndex + 1) {
+      alert("correct");
     }
-    // this.responseData.rounds.
-    const data = {
-      index: this.currentIndex,
-      round: this.round
-    };
-    this.service.index.next(data);
-  }
+
+    }
+   
+  
+  
 
 }

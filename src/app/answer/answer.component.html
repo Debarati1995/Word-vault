@@ -1,3 +1,8 @@
 <div class="answer-container">
-    <div *ngFor=" let answer of answers[index]">{{answer}}</div>
+
+    <div class="answer" *ngFor=" let answer of currentAnswer;let $index = index" (click)="checkAnswer($index)">
+        <div class="indicator"> <img class="indicator"  src="assets/images/md_5aaeb1de75bea.png" alt="" /></div>
+        {{answer}}
+    </div>
+
 </div>

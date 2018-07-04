@@ -3,10 +3,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class QuestionAnswerService {
-   index = new BehaviorSubject<{}>({ index: 0 });
-  // backToDistrict: BehaviorSubject<Object> = new BehaviorSubject({});
-  //currentIdx = this.index.asObservable();
 
+  index = new BehaviorSubject<{}>({ index: 0 });
 
   response: any;
   constructor() { }
