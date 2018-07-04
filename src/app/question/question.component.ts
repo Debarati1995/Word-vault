@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { QuestionAnswerService } from '../question-answer.service';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  QuestionAnswerService
+} from '../question-answer.service';
 import {
   Subscription
 } from 'rxjs/Subscription';
@@ -16,25 +21,26 @@ export class QuestionComponent implements OnInit {
   index = 0;
   round = 'round1';
   indexSubscription: Subscription;
-  constructor(private service: QuestionAnswerService) { }
+  constructor(private service: QuestionAnswerService) {}
 
   ngOnInit() {
     this.indexSubscription = this.service.index.subscribe((data: any) => {
       console.log(data);
       this.index = data.index;
-    } 
-    );
+    });
     this.service.getJsonData();
     this.responseData = this.service.response;
-   console.log(this.responseData);
-   for (let i in this.responseData.rounds) {
-     if (this.round === i) {
-       this.responseData.rounds[i].questions.forEach(e => {
-         this.questions.push(e.text);
-       });
-       console.log(this.questions);
-      }     
-     
+    console.log(this.responseData);
+    for (const i in this.responseData.rounds) {
+      if (this.round === i) {
+        this.responseData.rounds[i].questions.forEach(e => {
+          this.questions.push(e.text);
+        });
+        console.log(this.questions);
+      } else {
+        this.round = i;
+        return this.questions;
+      }
     }
   }
 

@@ -13,7 +13,8 @@ import {
 export class AnswerComponent implements OnInit {
   indexSubscription: Subscription;
   index;
-  answers=[];
+  answers = [];
+  round = 'round1';
   responseData;
   constructor(private service: QuestionAnswerService) { }
 
@@ -27,14 +28,16 @@ export class AnswerComponent implements OnInit {
     this.responseData = this.service.response;
     console.log(this.responseData);
     this.answers = [];
-    for (let i in this.responseData.rounds) {
-      this.answers.push(this.responseData.rounds[i].questions[this.index].answers);
-      return this.answers;
-      // this.responseData.rounds[i].questions.forEach(e => {
-      //   this.answers.push(e.answers);
-      //   console.log(this.answers);
-
-      // });
+    for (const i in this.responseData.rounds) {
+      if (this.round === i) {
+        this.responseData.rounds[i].questions.forEach(e => {
+          this.answers.push(e.answers);
+        });
+        console.log(this.answers);
+      } else {
+        this.round = i;
+        return this.answers;
+      }
     }
   }
 
