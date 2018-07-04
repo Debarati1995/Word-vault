@@ -20,7 +20,6 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit() {
     this.indexSubscription = this.service.index.subscribe((data: any) => {
-      console.log(data);
       this.index = data.index;
     } 
     );
