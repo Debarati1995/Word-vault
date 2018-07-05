@@ -45,15 +45,58 @@
     height: 80vh;
 }
 
+.speaker-icon-button {
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0px 2px 2px 1px #e4d3d9
+}
+.speaker-icon {
+    width: 2rem;
+}
+
 .instruction {
-    margin-left: 10%;
-    margin-top: 1.5rem;
-    color: #f1e0ac;
+    margin-left: 7%;
+    margin-top: 1.4rem;
+    color: #fffbef;
     font-size: 2rem;
     text-align: left;
     font-weight: bold;
     text-shadow: 1px 1px #af1936;
 }
+
+/* Modal Section STARTS */
+
+.modal-dialog {
+    width: 70%;
+}
+
+.modal-content{
+    height: 80vh;
+    width: 100%;
+}
+
+.modal-header{
+    background-color: #0063b1;
+    color: #ffc107;
+}
+.close{
+    color: #ffc107!important;
+    opacity: 1!important;
+}
+.modal-body>div {
+    border: 1px solid black;
+    display: inline-grid;
+    height: 65vh;
+}
+.word-vault-help {
+    width: 29%
+}
+
+.instruction-video-container {
+    width: 70%;
+}
+
+/* Modal Section ENDS */
 
 
 /* Question Section STARTS */
