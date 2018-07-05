@@ -1,7 +1,7 @@
 <div class="answer-container">
 
-    <div class="answer" *ngFor=" let answer of currentAnswer;let $index = index" (click)="checkAnswer($index)">
-        <div class="indicator"> <img class="indicator"  src="assets/images/md_5aaeb1de75bea.png" alt="" /></div>
+    <div class="answer" *ngFor=" let answer of currentAnswer;let $index = index" (click)="OnAnswerSelected($event, $index)">
+        <div class="indicator"> <img class="indicator-img deselected"  src="assets/images/md_5aaeb1de75bea.png" alt="" /></div>
         {{answer}}
     </div>
 

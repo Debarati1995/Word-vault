@@ -5,6 +5,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class QuestionAnswerService {
 
   index = new BehaviorSubject<{}>({ index: 0 });
+  reset = new BehaviorSubject<{}>({});
+
 
   response: any;
   constructor() { }

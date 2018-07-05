@@ -1,4 +1,4 @@
 <div class = "validation-container">
-<button>Reset</button>
-<button (click) ="validate()">OK</button>
+<button (click) ="reset()" >Reset</button>
+<button (click) ="validate()" [disabled]='!enableOkButton'>OK</button>
 </div>

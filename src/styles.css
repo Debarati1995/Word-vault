@@ -38,7 +38,7 @@
 }
 
 .active-screen {
-    background-color: yellow;
+    background-color: #ffc107;
 }
 
 .content-wrapper {
@@ -73,16 +73,6 @@
     border: 2px solid #ffc107;
 }
 
-.indicator {
-    width: 50px;
-    position: absolute;
-    /* float: left; */
-    left: 0px;
-    border-radius: 50%;
-    top: 9px;
-    background-color: #cfd0d0;
-}
-
 .button-container {
     float: right;
     margin-top: -33px;
@@ -110,7 +100,23 @@
     margin-right: 10%;
     padding-top: 2rem;
 }
-
+.indicator,
+.indicator-img {
+    width: 50px;
+    position: absolute;
+    float: left;
+    left: 0px;
+    border-radius: 50%;
+    margin-top: -7px;
+    /* top: -14px; */
+    display: inline-block;
+}
+.deselected {
+    background-color: #cfd0d0;
+}
+.selected{
+    background-color: #ffc107;
+}
 .validation-container {
     position: absolute;
     bottom: 4rem;
@@ -132,8 +138,14 @@
     border-radius: 19px;
     box-shadow: 3px 4px 6px 0px #185b65;
     margin-left: 1rem;
+    cursor: pointer;
 }
 
 .validation-container>button:active {
     box-shadow: 1px 2px 5px 0px #a09d9d;
+}
+
+.validation-container>button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
