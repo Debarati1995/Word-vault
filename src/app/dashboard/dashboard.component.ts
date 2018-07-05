@@ -61,6 +61,7 @@ export class DashboardComponent implements OnInit, OnChanges {
       if ((this.round + this.currentRound) === i) {
         this.responseData.rounds[i].questions.forEach(e => {
           this.questions.push(e.text);
+          // this.currentRoundAnswer.push(e);
           this.answers.push(e.answers);
           this.currentQuesObj.push(e);
         });
@@ -76,14 +77,17 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
   updateIndex(flag: boolean) {
     if (flag) {
-      if (this.currentRoundAnswer.length) {
-        this.currentRoundAnswer.splice(0, 1);
+      if (this.index < (this.questions.length - 1)) {
         // console.log(this.questions);
         this.index++;
       } else {
-        this.index = 0;
+        if (( Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
+          localStorage.setItem('last_question', 'true');
+        } else {
+          this.index = 0;
         this.currentRound += 1;
         this.getQuestionData();
+        }
       }
       this.screenIndicators.forEach(round => {
         if (round.screenNo === this.currentRound) {
@@ -92,10 +96,10 @@ export class DashboardComponent implements OnInit, OnChanges {
           round.isActive = false;
         }
       });
-      // if ((Object.keys(this.responseData.rounds).length === this.currentRound - 1) && (this.index === this.questions.length - 1)) {
-      //   localStorage.setItem('last_question', 'true');
-      // }
     }
     }
 
+close_window() {
+  window.close();
+    }
 }
