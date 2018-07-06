@@ -9,6 +9,7 @@ import {
 import {
   Subscription
 } from 'rxjs/Subscription';
+import { constants } from 'fs';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -31,6 +32,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   currentRoundAnswer = [];
   spriteImage;
   spriteArr = [];
+  vaultIndex = 0;
   @ViewChild('sprImage') sprImage: any;
   constructor(private service: QuestionAnswerService, private animationService: SpritAnimationService) { }
 
@@ -55,7 +57,7 @@ export class DashboardComponent implements OnInit, OnChanges {
       this.spriteImage = data;
     });
 
-    //this.img = "assets/fl/lock0001.png";
+    // this.img = 'assets/fl/lock0001.png';
   }
 
   ngOnChanges() {
@@ -91,22 +93,23 @@ export class DashboardComponent implements OnInit, OnChanges {
     if (flag) {
       if (this.index < (this.questions.length - 1)) {
         // console.log(this.questions);
-        this.getVaultAnimation(this.frames[this.index].start, this.frames[this.index].end);
+        this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
         // this.animate(this.spriteArr);
         this.index++;
-
 
       } else {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
           localStorage.setItem('last_question', 'true');
         } else {
-          this.getVaultAnimation(this.frames[this.index].start, this.frames[this.index].end);
+          this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
           this.index = 0;
           this.currentRound += 1;
           this.getQuestionData();
 
         }
       }
+
+      this.vaultIndex++;
 
       // for sprite animation
 
@@ -129,21 +132,21 @@ export class DashboardComponent implements OnInit, OnChanges {
   close_window() {
     window.close();
   }
-  //function for getting the lock numbers and x y position 
+  // function for getting the lock numbers and x y position
   getVaultAnimation(start, end) {
     let i = start;
-    let animateImg = setInterval(() => {
+    const animateImg = setInterval(() => {
       switch (true) {
         case i < 10:
-          this.images = "lock000" + i;
+          this.images = 'lock000' + i;
 
           break;
         case i < 100:
-          this.images = "lock00" + i;
+          this.images = 'lock00' + i;
 
           break;
         default:
-          this.images = "lock0" + i;
+          this.images = 'lock0' + i;
 
       }
       // this.spriteArr.push({ x: -this.spriteImage.frames[this.images].frame.x, y: -this.spriteImage.frames[this.images].frame.y });
@@ -156,7 +159,7 @@ export class DashboardComponent implements OnInit, OnChanges {
 
   }
 
-  // return this.spriteArr;   
+  // return this.spriteArr;
 
   startAnimation(a: number) {
 
