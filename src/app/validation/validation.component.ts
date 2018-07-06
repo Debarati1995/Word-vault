@@ -35,7 +35,8 @@ export class ValidationComponent implements OnInit {
   validate() {
     console.log(this.currentQuestion.correctAnswer);
     // debugger;
-    if ( parseInt( this.currentQuestion.correctAnswer) === this.ansIndex + 1) {  this.currentIndex.emit(true);
+    if (parseInt(this.currentQuestion.correctAnswer) === this.ansIndex + 1) {
+      this.currentIndex.emit(true);
       this.enableOkButton = false;
     } else {
        this.reset();

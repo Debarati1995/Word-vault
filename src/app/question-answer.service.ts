@@ -33,7 +33,11 @@ export class QuestionAnswerService {
                      'danger',
                      'splendid'
                   ],
-                  'correctAnswer': '3'
+                  'correctAnswer': '3',
+                  "frameRange": {
+                    "start": 1,
+                    "end": 46
+                  }
                },
                {
                   'text': {
@@ -45,7 +49,11 @@ export class QuestionAnswerService {
                      'splendid',
                      'special'
                   ],
-                  'correctAnswer': '2'
+                  'correctAnswer': '2',
+                  "frameRange": {
+                    "start": 47,
+                    "end": 138
+                  }
                }
             ]
          },
@@ -61,7 +69,11 @@ export class QuestionAnswerService {
                      'danger',
                      'special'
                   ],
-                  'correctAnswer': '2'
+                  'correctAnswer': '2',
+                  "frameRange": {
+                    "start": 139,
+                    "end": 184
+                  }
                },
                {
                   'text': {
@@ -73,7 +85,11 @@ export class QuestionAnswerService {
                      'partner',
                      'splendid'
                   ],
-                  'correctAnswer': '3'
+                  'correctAnswer': '3',
+                  "frameRange": {
+                    "start": 185,
+                    "end": 230
+                  }
                },
                {
                   'text': {
@@ -85,7 +101,11 @@ export class QuestionAnswerService {
                      'special',
                      'splendid'
                   ],
-                  'correctAnswer': '3'
+                  'correctAnswer': '3',
+                  "frameRange": {
+                    "start": 231,
+                    "end": 276
+                  }
                }
             ]
          },
@@ -101,7 +121,11 @@ export class QuestionAnswerService {
                      'danger',
                      'partner'
                   ],
-                  'correctAnswer': '3'
+                  'correctAnswer': '3',
+                  "frameRange": {
+                    "start": 277,
+                    "end": 322
+                  }
                },
                {
                   'text': {
@@ -113,7 +137,11 @@ export class QuestionAnswerService {
                      'special',
                      'partner'
                   ],
-                  'correctAnswer': '1'
+                  'correctAnswer': '1',
+                  "frameRange": {
+                    "start": 323,
+                    "end": 368
+                  }
                },
                {
                   'text': {
@@ -125,7 +153,11 @@ export class QuestionAnswerService {
                      'partner',
                      'splendid'
                   ],
-                  'correctAnswer': '2'
+                  'correctAnswer': '2',
+                  "frameRange": {
+                    "start": 369,
+                    "end": 456
+                  }
                }
             ]
          }

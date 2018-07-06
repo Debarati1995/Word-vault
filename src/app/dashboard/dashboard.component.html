@@ -1,56 +1,60 @@
 <div>
 
-  <div class="page-header header">
-    <h3>Your Turn: Vocabulary</h3>
-    <div class="button-container">
-      <button class="help-button" data-toggle="modal" data-target="#myModal">?</button>
-      <button class="exit-button" (click)="close_window();">X</button>
+    <div class="page-header header">
+        <p style="font-size: 20px;">Your Turn: Vocabulary</p>
+        <div class="button-container">
+            <button class="help-button" data-toggle="modal" data-target="#myModal">?</button>
+            <button class="exit-button" (click)="close_window();">X</button>
+        </div>
     </div>
-  </div>
 
-  <section class="content-wrapper">
+    <section class="content-wrapper">
 
-    <p class="instruction">
-      <button class="speaker-icon-button">
+        <p class="instruction">
+            <button class="speaker-icon-button">
         <img class="speaker-icon" src="assets/images/speaker_icon.png" alt="">
-      </button>
-      {{responseData.directions}}
-    </p>
-    <app-question [currentQuestion]="questions[index]"></app-question>
-    <app-answer [currentAnswer]="answers[index]"></app-answer>
-    <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]"></app-validation>
-  </section>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+      </button> {{responseData.directions}}
+        </p>
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+        <app-question [currentQuestion]="questions[index]"></app-question>
+        <!-- <app-animate></app-animate> -->
+        <div class="animate-container" #sprImage [style.background-position]="">
+            <!-- <img class="animate-image" [src]="img" /> -->
         </div>
-        <div class="modal-body">
-          <div class="word-vault-help">
-              <b>Word vault Help</b>
-              <p>Welcome!</p>
-              <p>in this activity,you will us your reading skills to crack open this vault.</p>
-              <p>First,read each question at the top of the screen.</p>
-              <p>Then read the choices below.</p>
-              <p>Select your answer by clicking on it.Then hit <b>OK</b></p>
-              <p>If you want to choose a dofferent answer,then click on <b>RESET</b>.</p>
-              <p>Once you complete three rounds,the vault will open to reveal your reward!</p>
-              <p>Click the <b>?</b>for help and to hear these directions again.</p>
-          </div>
-          <div class="instruction-video-container">cfbgc</div>
-        </div>
-      </div>
+        <app-answer [currentAnswer]="answers[index]"></app-answer>
+        <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]"></app-validation>
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="word-vault-help">
+                        <b>Word vault Help</b>
+                        <p>Welcome!</p>
+                        <p>in this activity,you will us your reading skills to crack open this vault.</p>
+                        <p>First,read each question at the top of the screen.</p>
+                        <p>Then read the choices below.</p>
+                        <p>Select your answer by clicking on it.Then hit <b>OK</b></p>
+                        <p>If you want to choose a dofferent answer,then click on <b>RESET</b>.</p>
+                        <p>Once you complete three rounds,the vault will open to reveal your reward!</p>
+                        <p>Click the <b>?</b>for help and to hear these directions again.</p>
+                    </div>
+                    <div class="instruction-video-container">cfbgc</div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
-  <div class="footer">
-    <div *ngFor="let screen of screenIndicators" [ngClass]="{'active-screen': screen.isActive}">
-      <!-- <span ></span> -->
+    <div class="footer">
+        <div *ngFor="let screen of screenIndicators" [ngClass]="{'active-screen': screen.isActive}">
+            <!-- <span ></span> -->
+        </div>
     </div>
-  </div>
 </div>

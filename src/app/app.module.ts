@@ -8,6 +8,10 @@ import { AnswerComponent } from './answer/answer.component';
 import { ValidationComponent } from './validation/validation.component';
 import { ScreenComponent } from './screen/screen.component';
 import { QuestionAnswerService } from './question-answer.service';
+import { AnimateComponent } from './animate/animate.component';
+import { SpritAnimationService } from './sprite-animation-service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -17,16 +21,18 @@ import { QuestionAnswerService } from './question-answer.service';
     QuestionComponent,
     AnswerComponent,
     ValidationComponent,
-    ScreenComponent
+    ScreenComponent,
+    AnimateComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: DashboardComponent}
     ]
     )
   ],
-  providers: [QuestionAnswerService],
+  providers: [QuestionAnswerService, SpritAnimationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

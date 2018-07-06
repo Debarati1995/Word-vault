@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+
 /* Header Section STARTS */
+
 .header {
     padding-left: 8rem;
     background-color: #af1936;
@@ -29,20 +31,20 @@
     margin-right: 28px;
 }
 
-/* Header Section ENDS */
 
+/* Header Section ENDS */
 
 
 /* Main Content STARTS */
 
 .content-wrapper {
     position: absolute;
-    top: 6rem;
-    /* background-color: rgba(41, 41, 40, 0.4196078431372549); */
-    /* background-color: #fcf8e3; */
-    background-image: url('assets/images/background-image-html.jpg');
+    top: 5rem;
     width: 100%;
-    height: 80vh;
+    height: 87vh;
+    width: 100%;
+    height: 85vh;
+    background-image: url('assets/images/background-image-html.jpg');
 }
 
 .speaker-icon-button {
@@ -50,6 +52,7 @@
     border-radius: 50%;
     box-shadow: 0px 2px 2px 1px #e4d3d9
 }
+
 .speaker-icon {
     width: 2rem;
 }
@@ -58,11 +61,12 @@
     margin-left: 7%;
     margin-top: 1.4rem;
     color: #fffbef;
-    font-size: 2rem;
+    font-size: 18px;
     text-align: left;
     font-weight: bold;
     text-shadow: 1px 1px #af1936;
 }
+
 
 /* Modal Section STARTS */
 
@@ -70,24 +74,27 @@
     width: 70%;
 }
 
-.modal-content{
+.modal-content {
     height: 80vh;
     width: 100%;
 }
 
-.modal-header{
+.modal-header {
     background-color: #0063b1;
     color: #ffc107;
 }
-.close{
+
+.close {
     color: #ffc107!important;
     opacity: 1!important;
 }
+
 .modal-body>div {
     border: 1px solid black;
     display: inline-grid;
     height: 65vh;
 }
+
 .word-vault-help {
     width: 29%
 }
@@ -95,6 +102,7 @@
 .instruction-video-container {
     width: 70%;
 }
+
 
 /* Modal Section ENDS */
 
@@ -104,7 +112,7 @@
 .question-container {
     position: absolute;
     left: 10%;
-    padding: 8px;
+    padding: 4px;
     font-size: 19px;
     top: 5rem;
     background-color: white;
@@ -112,7 +120,9 @@
     width: 80%;
 }
 
+
 /* Question Section ENDS */
+
 
 /* Answer Section STARTS */
 
@@ -149,14 +159,18 @@
     /* top: -14px; */
     display: inline-block;
 }
+
 .deselected {
     background-color: #cfd0d0;
 }
-.selected{
+
+.selected {
     background-color: #ffc107;
 }
 
+
 /* Answer Section ENDS */
+
 
 /* Validation section STARTS */
 
@@ -195,10 +209,11 @@
     cursor: not-allowed;
 }
 
+
 /* Validation section ENDS */
 
-/* Main Content ENDS */
 
+/* Main Content ENDS */
 
 
 /* Footer Section STARTS */
@@ -209,7 +224,7 @@
     width: 100%;
     left: 0;
     background-color: #af1936;
-    height: 8rem;
+    height: 5rem;
     border-top: 4px solid #FFC107;
     z-index: 1;
 }
@@ -230,4 +245,27 @@
     background-color: #ffc107;
 }
 
+
 /* Footer Section ENDS */
+
+
+/*side animation image*/
+
+.animate-container {
+    display: inline-block;
+    width: 516px;
+    /* width: 516px; */
+    margin-left: 90px;
+    margin-top: 60px;
+    height: 418px;
+    background-image: url('assets/images/vault-sprite.png');
+}
+
+.animate-image {
+    width: 384px;
+    margin-top: 60px;
+    margin-left: 2px;
+}
+
+
+/*side animation image end*/

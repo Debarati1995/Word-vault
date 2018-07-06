@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output,  EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChild } from '@angular/core';
 import { QuestionComponent } from '../question/question.component';
 import { AnswerComponent } from '../answer/answer.component';
 import { ValidationComponent } from '../validation/validation.component';
+import { SpritAnimationService } from '../sprite-animation-service';
 import {
   QuestionAnswerService
 } from '../question-answer.service';
@@ -17,13 +18,21 @@ export class DashboardComponent implements OnInit, OnChanges {
   questions = [];
   answers = [];
   currentQuesObj = [];
+  images = '';
   responseData;
   index = 0;
+  k = 0;
+  frames = [];
+  countToChangeImage = 1;
   round = 'round';
   currentRound = 1;
+  img: any;
   screenIndicators = [];
   currentRoundAnswer = [];
-  constructor(private service: QuestionAnswerService) { }
+  spriteImage;
+  spriteArr = [];
+  @ViewChild('sprImage') sprImage: any;
+  constructor(private service: QuestionAnswerService, private animationService: SpritAnimationService) { }
 
   ngOnInit() {
     this.screenIndicators = [
@@ -42,12 +51,15 @@ export class DashboardComponent implements OnInit, OnChanges {
     ];
     this.getQuestionData();
     localStorage.setItem('last_question', 'false');
+    this.animationService.getAnimateData().subscribe(data => {
+      this.spriteImage = data;
+    });
+
+    //this.img = "assets/fl/lock0001.png";
   }
 
   ngOnChanges() {
-    // if (this.index < this.currentRoundAnswer.length) {
-    //   this.currentRoundAnswer.splice(0, 1);
-    // }
+
   }
 
   getQuestionData() {
@@ -61,7 +73,7 @@ export class DashboardComponent implements OnInit, OnChanges {
       if ((this.round + this.currentRound) === i) {
         this.responseData.rounds[i].questions.forEach(e => {
           this.questions.push(e.text);
-          // this.currentRoundAnswer.push(e);
+          this.frames.push(e.frameRange);
           this.answers.push(e.answers);
           this.currentQuesObj.push(e);
         });
@@ -79,16 +91,31 @@ export class DashboardComponent implements OnInit, OnChanges {
     if (flag) {
       if (this.index < (this.questions.length - 1)) {
         // console.log(this.questions);
+        this.getVaultAnimation(this.frames[this.index].start, this.frames[this.index].end);
+        // this.animate(this.spriteArr);
         this.index++;
+
+
       } else {
-        if (( Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
+        if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
           localStorage.setItem('last_question', 'true');
         } else {
+          this.getVaultAnimation(this.frames[this.index].start, this.frames[this.index].end);
           this.index = 0;
-        this.currentRound += 1;
-        this.getQuestionData();
+          this.currentRound += 1;
+          this.getQuestionData();
+
         }
       }
+
+      // for sprite animation
+
+      // let loadImage = setInterval(() => {
+      //   this.img = this.images[this.k];
+      //   if (++this.k === this.images.length)
+      //     clearInterval(loadImage);
+      // }, 200);
+
       this.screenIndicators.forEach(round => {
         if (round.screenNo === this.currentRound) {
           round.isActive = true;
@@ -97,9 +124,45 @@ export class DashboardComponent implements OnInit, OnChanges {
         }
       });
     }
-    }
+  }
 
-close_window() {
-  window.close();
-    }
+  close_window() {
+    window.close();
+  }
+  //function for getting the lock numbers and x y position 
+  getVaultAnimation(start, end) {
+    let i = start;
+    let animateImg = setInterval(() => {
+      switch (true) {
+        case i < 10:
+          this.images = "lock000" + i;
+
+          break;
+        case i < 100:
+          this.images = "lock00" + i;
+
+          break;
+        default:
+          this.images = "lock0" + i;
+
+      }
+      // this.spriteArr.push({ x: -this.spriteImage.frames[this.images].frame.x, y: -this.spriteImage.frames[this.images].frame.y });
+      this.startAnimation(i);
+      i++ === end ? clearInterval(animateImg) : '';
+    }, 50);
+
+    // let lockNumber;
+    // console.log('spritearray', );
+
+  }
+
+  // return this.spriteArr;   
+
+  startAnimation(a: number) {
+
+    console.log(a);
+
+    this.sprImage.nativeElement['style'].backgroundPositionX = -this.spriteImage.frames[this.images].frame.x + 'px';
+    this.sprImage.nativeElement['style'].backgroundPositionY = -this.spriteImage.frames[this.images].frame.y + 'px';
+  }
 }
