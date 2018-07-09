@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   spriteImage;
   spriteArr = [];
   vaultIndex = 0;
+  showCorrectAns = false;
   @ViewChild('sprImage') sprImage: any;
   constructor(private service: QuestionAnswerService, private animationService: SpritAnimationService) { }
 
@@ -89,14 +90,16 @@ export class DashboardComponent implements OnInit, OnChanges {
       }
     }
   }
-  updateIndex(flag: boolean) {
-    if (flag) {
+  updateIndex(obj: any) {
+    console.log(obj);
+    if (obj.isEmit || obj.tryCount >= 2) {
       if (this.index < (this.questions.length - 1)) {
-        // console.log(this.questions);
-        this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
-        // this.animate(this.spriteArr);
+        if (obj.isEmit) {
+          this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
+        } else {
+          this.showCorrectAns = true;
+        }
         this.index++;
-
       } else {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
           localStorage.setItem('last_question', 'true');
@@ -110,15 +113,6 @@ export class DashboardComponent implements OnInit, OnChanges {
       }
 
       this.vaultIndex++;
-
-      // for sprite animation
-
-      // let loadImage = setInterval(() => {
-      //   this.img = this.images[this.k];
-      //   if (++this.k === this.images.length)
-      //     clearInterval(loadImage);
-      // }, 200);
-
       this.screenIndicators.forEach(round => {
         if (round.screenNo === this.currentRound) {
           round.isActive = true;

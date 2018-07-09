@@ -36,7 +36,7 @@ export class QuestionAnswerService {
                   'correctAnswer': '3',
                   "frameRange": {
                     "start": 1,
-                    "end": 46
+                    "end": 51
                   }
                },
                {
@@ -51,7 +51,7 @@ export class QuestionAnswerService {
                   ],
                   'correctAnswer': '2',
                   "frameRange": {
-                    "start": 47,
+                    "start": 52,
                     "end": 138
                   }
                }

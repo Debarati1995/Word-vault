@@ -21,7 +21,7 @@
         <div class="animate-container" #sprImage [style.background-position]="">
             <!-- <img class="animate-image" [src]="img" /> -->
         </div>
-        <app-answer [currentAnswer]="answers[index]"></app-answer>
+        <app-answer [currentAnswer]="answers[index]" [showCorrectAns]="showCorrectAns"></app-answer>
         <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]"></app-validation>
     </section>
     <!-- Modal -->

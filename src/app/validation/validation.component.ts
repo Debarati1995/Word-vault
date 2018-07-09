@@ -18,6 +18,7 @@ export class ValidationComponent implements OnInit {
   ansIndex: number;
   indexSubscription: Subscription;
   enableOkButton;
+  tryCount = 0;
   constructor(private service: QuestionAnswerService) { }
 
   ngOnInit() {
@@ -36,10 +37,15 @@ export class ValidationComponent implements OnInit {
     console.log(this.currentQuestion.correctAnswer);
     // debugger;
     if (parseInt(this.currentQuestion.correctAnswer) === this.ansIndex + 1) {
-      this.currentIndex.emit(true);
+      this.currentIndex.emit({'isEmit': true, 'tryCount': this.tryCount});
       this.enableOkButton = false;
     } else {
-       this.reset();
+      this.reset();
+      this.tryCount++;
+      if (this.tryCount === 2) {
+        console.log("2 done");
+        this.currentIndex.emit({ 'isEmit': false, 'tryCount': this.tryCount });
+      }
     }
 
     }
