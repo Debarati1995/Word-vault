@@ -1,0 +1,14 @@
+{
+    "audios": [{
+            "path": "assets/audios/awesome_1.mp3",
+            "isEnabled": "false"
+        },
+        {
+            "path": "assets/audios/brilliant_1.mp3",
+            "isEnabled": "false"
+        }, {
+            "path": "assets/audios/lets_try_another_2.mp3",
+            "isEnabled": "false"
+        }
+    ]
+}

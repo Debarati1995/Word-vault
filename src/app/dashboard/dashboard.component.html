@@ -14,6 +14,7 @@
             <button class="speaker-icon-button">
         <img class="speaker-icon" src="assets/images/speaker_icon.png" alt="">
       </button> {{responseData.directions}}
+            <!-- <audio #audios controls autoplay preload="auto"><source  [src]="src" type="audio/mp3"></audio> -->
         </p>
 
         <app-question [currentQuestion]="questions[index]"></app-question>
@@ -21,7 +22,7 @@
         <div class="animate-container" #sprImage [style.background-position]="">
             <!-- <img class="animate-image" [src]="img" /> -->
         </div>
-        <app-answer [currentAnswer]="answers[index]" [trycount]="trycount" [correctOption]="currentQuesObj[index].correctAnswer"></app-answer>
+        <app-answer [currentAnswer]="answers[index]" [tryCount]="tryCount" [correctOption]="currentQuesObj[index].correctAnswer"></app-answer>
         <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]"></app-validation>
     </section>
     <!-- Modal -->

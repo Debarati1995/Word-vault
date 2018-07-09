@@ -1,10 +1,11 @@
 <div class="answer-container">
 
-    <div class="answer" *ngFor=" let answer of currentAnswer;let $index = index" (click)="OnAnswerSelected($event, $index)" [ngClass]="{'correct': (trycount === 2 && $index+1 === correctOption), 'wrong': (trycount === 2 && $index === ansIndex)}">
-            <!-- [ngClass]="(step=='step1')?'my-class1':'my-class2'" -->
+    <div class="answer" *ngFor=" let answer of answers;let $index = index" (click)="OnAnswerSelected($event, $index)" [ngClass]="(tryCount === 2 && !answer.isSelected && answer.isCorrect) ? 'correct': ((tryCount === 2 && answer.isSelected && !answer.isCorrect) ? 'wrong': '')">
+        <!-- [ngClass]="(step=='step1')?'my-class1':'my-class2'" -->
+        <!-- {'correct': (tryCount === 2 && $index+1 === correctOption), 'wrong': (tryCount === 2 && $index === ansIndex)} -->
         <div class="indicator"> <img class="indicator-img deselected" src="assets/images/md_5aaeb1de75bea.png" alt="" /></div>
-        {{answer}} 
-        <!-- {{(correctOption)}} -->
+        {{answer.ansText}}
+        <!-- {{(correctOption)}}  -->
     </div>
 
 </div>
