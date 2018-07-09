@@ -13,7 +13,8 @@ import {
 })
 export class AnswerComponent implements OnInit, OnChanges {
   @Input() currentAnswer: any;
-  @Input() showCorrectAns: any;
+  @Input() trycount: any;
+  @Input() correctOption: any;
   resetsubscription: Subscription;
   ansIndex;
 

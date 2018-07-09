@@ -43,7 +43,7 @@ export class ValidationComponent implements OnInit {
       this.reset();
       this.tryCount++;
       if (this.tryCount === 2) {
-        console.log("2 done");
+        console.log('2 done');
         this.currentIndex.emit({ 'isEmit': false, 'tryCount': this.tryCount });
       }
     }

@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   spriteArr = [];
   vaultIndex = 0;
   showCorrectAns = false;
+  trycount = 0;
   @ViewChild('sprImage') sprImage: any;
   constructor(private service: QuestionAnswerService, private animationService: SpritAnimationService) { }
 
@@ -92,6 +93,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
   updateIndex(obj: any) {
     console.log(obj);
+    this.trycount = obj.trycount;
     if (obj.isEmit || obj.tryCount >= 2) {
       if (this.index < (this.questions.length - 1)) {
         if (obj.isEmit) {
