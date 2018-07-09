@@ -9,7 +9,7 @@ import {
 import {
   Subscription
 } from 'rxjs/Subscription';
-import { constants } from 'fs';
+// import { constants } from 'fs';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -101,12 +101,12 @@ export class DashboardComponent implements OnInit, OnChanges {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
           localStorage.setItem('last_question', 'true');
         } else {
-          this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
           this.index = 0;
           this.currentRound += 1;
           this.getQuestionData();
 
         }
+        this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
       }
 
       this.vaultIndex++;
