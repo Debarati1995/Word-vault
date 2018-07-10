@@ -11,5 +11,8 @@ export class SpritAnimationService {
     getAnimateData() {
         return this.http.get('assets/data/vault_image.json');
     }
+    getAudioData() {
+        return this.http.get('assets/data/audio.json');
+    }
     
 }

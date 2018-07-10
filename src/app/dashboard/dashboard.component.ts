@@ -10,6 +10,7 @@ import {
   Subscription
 } from 'rxjs/Subscription';
 // import { constants } from 'fs';
+import { SoundService } from '../sound.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -34,8 +35,13 @@ export class DashboardComponent implements OnInit, OnChanges {
   spriteArr = [];
   vaultIndex = 0;
   showCorrectAns = false;
+  tryCount = 0;
+  audio;
+  src = '';
+  audios = [];
   @ViewChild('sprImage') sprImage: any;
-  constructor(private service: QuestionAnswerService, private animationService: SpritAnimationService) { }
+
+  constructor(private service: QuestionAnswerService, private animationService: SpritAnimationService, private soundService: SoundService) { }
 
   ngOnInit() {
     this.screenIndicators = [
@@ -57,6 +63,17 @@ export class DashboardComponent implements OnInit, OnChanges {
     this.animationService.getAnimateData().subscribe(data => {
       this.spriteImage = data;
     });
+    this.animationService.getAudioData().subscribe(audio => {
+      this.audio = audio['audios'];
+      this.audio.forEach(audio => {
+        this.audios.push(audio.path);
+      });
+      this.soundService.fetchAudios(this.audios);
+     
+    });
+
+
+
 
     // this.img = 'assets/fl/lock0001.png';
   }
@@ -92,10 +109,12 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
   updateIndex(obj: any) {
     console.log(obj);
+    this.tryCount = obj.tryCount;
     if (obj.isEmit || obj.tryCount >= 2) {
       if (this.index < (this.questions.length - 1)) {
         if (obj.isEmit) {
           this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
+          this.soundService.play(this.audios[0]);
         } else {
           this.showCorrectAns = true;
         }

@@ -12,22 +12,38 @@ import {
   styleUrls: ['./answer.component.css']
 })
 export class AnswerComponent implements OnInit, OnChanges {
+  answers = [];
   @Input() currentAnswer: any;
-  @Input() showCorrectAns: any;
+  @Input() tryCount: any;
+  @Input() correctOption: any;
   resetsubscription: Subscription;
   ansIndex;
 
   constructor(private service: QuestionAnswerService) { }
 
   ngOnInit() {
-    // const imgArr = Array.from(document.getElementsByClassName('indicator-img'));
-    // imgArr.forEach(img => {
-    //   img.classList.remove('selected');
-    //     img.classList.add('deselected');
-    // });
-  }
+    
+  }  
 
   ngOnChanges() {
+    console.log(parseInt(this.correctOption));
+    this.correctOption = parseInt(this.correctOption);
+    this.answers = [];
+    if (this.currentAnswer) {
+      this.currentAnswer.forEach(ans => {
+        this.answers.push({
+          ansText: ans,
+          isSelected: false,
+          isCorrect: false
+        });
+
+      });
+      this.answers[this.correctOption - 1].isCorrect = true;
+      console.log('answer object', this.answers);
+
+    }
+  
+   
     this.resetAnswers();
     this.resetsubscription = this.service.reset.subscribe((obj: any) => {
       this.ansIndex = obj;
@@ -48,7 +64,11 @@ export class AnswerComponent implements OnInit, OnChanges {
 
   OnAnswerSelected(event, idx) {
     this.resetAnswers();
-
+    this.answers.forEach(answer => {
+      answer.isSelected = false;
+    });
+    this.answers[idx].isSelected = true;
+    console.log(this.answers);
     if (event.currentTarget.classList.contains('answer')) {
       event.currentTarget.children[0].children[0].classList.add('selected');
     }

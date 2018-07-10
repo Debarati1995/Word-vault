@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter , OnInit, Input} from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { QuestionAnswerService } from '../question-answer.service';
 import {
   Subscription
@@ -34,20 +34,27 @@ export class ValidationComponent implements OnInit {
     this.service.reset.next({});
   }
   validate() {
+
     console.log(this.currentQuestion.correctAnswer);
     // debugger;
     if (parseInt(this.currentQuestion.correctAnswer) === this.ansIndex + 1) {
-      this.currentIndex.emit({'isEmit': true, 'tryCount': this.tryCount});
+      this.currentIndex.emit({ 'isEmit': true, 'tryCount': this.tryCount });
+      this.tryCount = 0;
       this.enableOkButton = false;
     } else {
-      this.reset();
-      this.tryCount++;
+      // setTimeout(()=>{
       if (this.tryCount === 2) {
-        console.log("2 done");
+        console.log('2 done');
         this.currentIndex.emit({ 'isEmit': false, 'tryCount': this.tryCount });
+        this.tryCount = 0;
+      } else {
+        this.reset();
+        this.tryCount++;
       }
-    }
+      // }, 2000);
 
     }
+
+  }
 
 }

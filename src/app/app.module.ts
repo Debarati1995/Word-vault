@@ -11,6 +11,8 @@ import { QuestionAnswerService } from './question-answer.service';
 import { AnimateComponent } from './animate/animate.component';
 import { SpritAnimationService } from './sprite-animation-service';
 import { HttpClientModule } from '@angular/common/http';
+import { SoundService } from './sound.service';
+
 
 
 
@@ -28,11 +30,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: DashboardComponent}
+      { path: '', component: DashboardComponent }
     ]
     )
   ],
-  providers: [QuestionAnswerService, SpritAnimationService],
+  providers: [QuestionAnswerService, SpritAnimationService, SoundService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
