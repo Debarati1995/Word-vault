@@ -129,10 +129,12 @@ export class DashboardComponent implements OnInit, OnChanges {
       } else {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
           localStorage.setItem('last_question', 'true');
+          this.soundService.play(this.audios[3]);
         } else {
           this.index = 0;
           this.currentRound += 1;
           this.getQuestionData();
+          this.soundService.play(this.audios[0]);
 
         }
         this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);

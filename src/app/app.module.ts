@@ -16,7 +16,6 @@ import { SoundService } from './sound.service';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

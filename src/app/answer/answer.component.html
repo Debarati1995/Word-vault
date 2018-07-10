@@ -1,6 +1,6 @@
 <div class="answer-container">
 
-    <div tabindex="0" class="answer" *ngFor=" let answer of answers;let $index = index" (click)="OnAnswerSelected($event, $index)" [ngClass]="(tryCount === 2 && !answer.isSelected && answer.isCorrect) ? 'correct': ((tryCount === 2 && answer.isSelected && !answer.isCorrect) ? 'wrong': '')" (keydown)="onKeyDown($event,$index)">
+    <div class="answer" *ngFor=" let answer of answers;let $index = index" (click)="OnAnswerSelected($event, $index)" [ngClass]="(tryCount === 2 && !answer.isSelected && answer.isCorrect) ? 'correct': ((tryCount === 2 && answer.isSelected && !answer.isCorrect) ? 'wrong': '')">
         <!-- [ngClass]="(step=='step1')?'my-class1':'my-class2'" -->
         <!-- {'correct': (tryCount === 2 && $index+1 === correctOption), 'wrong': (tryCount === 2 && $index === ansIndex)} -->
         <div class="indicator"> <img class="indicator-img deselected" src="assets/images/md_5aaeb1de75bea.png" alt="" /></div>
