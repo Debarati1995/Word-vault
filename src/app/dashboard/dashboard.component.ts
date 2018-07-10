@@ -11,6 +11,7 @@ import {
 } from 'rxjs/Subscription';
 // import { constants } from 'fs';
 import { SoundService } from '../sound.service';
+import { element } from 'protractor';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -72,6 +73,9 @@ export class DashboardComponent implements OnInit, OnChanges {
      
     });
 
+    // this.modal.nativeElemnt.on('show', function () {
+    //   this.closeButton.focus();
+    // });
 
 
 
@@ -79,8 +83,9 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-
+   
   }
+
 
   getQuestionData() {
     this.questions = [];
@@ -107,6 +112,8 @@ export class DashboardComponent implements OnInit, OnChanges {
       }
     }
   }
+ 
+
   updateIndex(obj: any) {
     console.log(obj);
     this.tryCount = obj.tryCount;
