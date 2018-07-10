@@ -9,6 +9,10 @@
         }, {
             "path": "assets/audios/lets_try_another_2.mp3",
             "isEnabled": "false"
+        },
+         {
+            "path": "assets/audios/reward1.mp3",
+            "isEnabled": "false"
         }
     ]
 }

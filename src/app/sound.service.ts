@@ -69,7 +69,7 @@ export class SoundService {
     }
 
     this.currentAudio.source.onended = () => {
-      this.eventManager.broadcast('playended', this.currentAudio); //current audio play ended
+      // this.eventManager.broadcast('playended', this.currentAudio); //current audio play ended
     }
 
   }
