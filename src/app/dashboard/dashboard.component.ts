@@ -68,8 +68,8 @@ export class DashboardComponent implements OnInit, OnChanges {
     });
     this.animationService.getAudioData().subscribe(audio => {
       this.audio = audio['audios'];
-      this.audio.forEach(audio => {
-        this.audios.push(audio.path);
+      this.audio.forEach(aud => {
+        this.audios.push(aud.path);
       });
       this.soundService.fetchAudios(this.audios);
 
@@ -127,17 +127,20 @@ export class DashboardComponent implements OnInit, OnChanges {
         } else {
           this.showCorrectAns = true;
         }
-        // this.index++;
+        setTimeout(() => {
+          this.index++;
+        }, 2500);
       } else {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
           localStorage.setItem('last_question', 'true');
           this.soundService.play(this.audios[3]);
         } else {
-          this.index = 0;
+          setTimeout(() => {
+            this.index = 0;
           this.currentRound += 1;
           this.getQuestionData();
           this.soundService.play(this.audios[0]);
-
+          }, 4000);
         }
         this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
       }
@@ -176,8 +179,12 @@ export class DashboardComponent implements OnInit, OnChanges {
       this.startAnimation(i);
       if (i++ === end) {
         clearInterval(animateImg);
-        this.index++;
-      };
+        // if (this.index < (this.questions.length - 1)) {
+        //   this.index++;
+        // } else {
+        //   this.index = 0;
+        // }
+      }
     }, 50);
 
     // let lockNumber;
@@ -191,7 +198,7 @@ export class DashboardComponent implements OnInit, OnChanges {
       });
     }, 500);
 
-    console.log("modal")
+    // console.log("modal")
   }
 
   // return this.spriteArr;
