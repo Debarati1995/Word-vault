@@ -76,4 +76,9 @@ export class AnswerComponent implements OnInit, OnChanges {
     this.service.index.next(this.ansIndex);
   }
 
+  onKeyDown(event,idx){
+    if (event.keyCode === 13) {
+      this.OnAnswerSelected(event,idx);
+    }
+  }
 }

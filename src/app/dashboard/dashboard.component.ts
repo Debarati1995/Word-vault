@@ -41,6 +41,8 @@ export class DashboardComponent implements OnInit, OnChanges {
   src = '';
   audios = [];
   @ViewChild('sprImage') sprImage: any;
+  @ViewChild('modal') modal: any;
+
 
   constructor(private service: QuestionAnswerService, private animationService: SpritAnimationService, private soundService: SoundService) { }
 
@@ -70,7 +72,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.audios.push(audio.path);
       });
       this.soundService.fetchAudios(this.audios);
-     
+
     });
 
     // this.modal.nativeElemnt.on('show', function () {
@@ -83,7 +85,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-   
+
   }
 
 
@@ -112,7 +114,7 @@ export class DashboardComponent implements OnInit, OnChanges {
       }
     }
   }
- 
+
 
   updateIndex(obj: any) {
     console.log(obj);
@@ -125,7 +127,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         } else {
           this.showCorrectAns = true;
         }
-        this.index++;
+        // this.index++;
       } else {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
           localStorage.setItem('last_question', 'true');
@@ -171,14 +173,25 @@ export class DashboardComponent implements OnInit, OnChanges {
           this.images = 'lock0' + i;
 
       }
-      // this.spriteArr.push({ x: -this.spriteImage.frames[this.images].frame.x, y: -this.spriteImage.frames[this.images].frame.y });
       this.startAnimation(i);
-      i++ === end ? clearInterval(animateImg) : '';
+      if (i++ === end) {
+        clearInterval(animateImg);
+        this.index++;
+      };
     }, 50);
 
     // let lockNumber;
     // console.log('spritearray', );
 
+  }
+  openModal() {
+    setTimeout(() => {
+      this.modal.nativeElemnt.on('show', function () {
+        this.closeButton.focus();
+      });
+    }, 500);
+
+    console.log("modal")
   }
 
   // return this.spriteArr;
@@ -186,7 +199,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   startAnimation(a: number) {
 
     console.log(a);
-    
+
     this.sprImage.nativeElement['style'].backgroundPositionX = -this.spriteImage.frames[this.images].frame.x + 'px';
     this.sprImage.nativeElement['style'].backgroundPositionY = -this.spriteImage.frames[this.images].frame.y + 'px';
   }
