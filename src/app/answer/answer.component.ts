@@ -16,14 +16,14 @@ export class AnswerComponent implements OnInit, OnChanges {
   @Input() currentAnswer: any;
   @Input() tryCount: any;
   @Input() correctOption: any;
+  @Input() currentIndex: any;
+  previousIndex = 0;
   resetsubscription: Subscription;
   ansIndex;
 
   constructor(private service: QuestionAnswerService) { }
 
-  ngOnInit() {
-    
-  }  
+  ngOnInit() {}
 
   ngOnChanges() {
     console.log(parseInt(this.correctOption));
@@ -38,12 +38,17 @@ export class AnswerComponent implements OnInit, OnChanges {
         });
 
       });
-      this.answers[this.correctOption - 1].isCorrect = true;
+      if (this.tryCount > 1 && this.currentIndex === this.previousIndex) {
+        this.answers[this.correctOption - 1].isCorrect = true;
+      } else {
+        this.answers.forEach(ans => {
+          ans.isSelected = false;
+        });
+      }
+      this.previousIndex = this.currentIndex;
       console.log('answer object', this.answers);
 
     }
-  
-   
     this.resetAnswers();
     this.resetsubscription = this.service.reset.subscribe((obj: any) => {
       this.ansIndex = obj;

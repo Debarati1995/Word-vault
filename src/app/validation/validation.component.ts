@@ -42,17 +42,13 @@ export class ValidationComponent implements OnInit {
       this.tryCount = 0;
       this.enableOkButton = false;
     } else {
-      // setTimeout(()=>{
+      this.reset();
+      this.tryCount++;
       if (this.tryCount === 2) {
         console.log('2 done');
         this.currentIndex.emit({ 'isEmit': false, 'tryCount': this.tryCount });
         this.tryCount = 0;
-      } else {
-        this.reset();
-        this.tryCount++;
       }
-      // }, 2000);
-
     }
 
   }

@@ -137,12 +137,15 @@ export class DashboardComponent implements OnInit, OnChanges {
         } else {
           setTimeout(() => {
             this.index = 0;
-          this.currentRound += 1;
           this.getQuestionData();
           this.soundService.play(this.audios[0]);
           }, 4000);
+          this.currentRound += 1;
         }
-        this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
+        if (obj.isEmit) {
+          this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
+        }
+       
       }
 
       this.vaultIndex++;

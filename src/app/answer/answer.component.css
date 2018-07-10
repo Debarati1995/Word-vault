@@ -1,7 +1,7 @@
 .correct {
-    color: green;
+    background-color: green;
 }
 
 .wrong {
-    color: red;
+    background-color: red;
 }
