@@ -21,7 +21,7 @@
 .help-button {
     border-radius: 30px;
     /* background-color: #3498a7; */
-    background-color: #333333b5;
+    background-color: #333333;
     border: 2px solid #ffc107;
 }
 
@@ -90,19 +90,27 @@
 }
 
 .modal-body>div {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     display: inline-grid;
     height: 65vh;
+    float: left;
 }
 
 .word-vault-help {
-    width: 29%
+    width: 29%;
+    border: 1px solid black;
 }
 
 .instruction-video-container {
     width: 70%;
+    border: none;
 }
-
+.instruction-video-container>img{
+    position: relative;
+    top: 5rem;
+    left: 8rem;
+    height: 50vh;
+}
 
 /* Modal Section ENDS */
 
