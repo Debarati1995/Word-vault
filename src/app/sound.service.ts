@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import { buffer } from 'rxjs/operator/buffer';
 
+
 @Injectable()
 export class SoundService {
 
@@ -68,9 +69,9 @@ export class SoundService {
       this.currentAudio.source.noteOn(0);
     }
 
-    this.currentAudio.source.onended = () => {
-      this.eventManager.broadcast('playended', this.currentAudio); //current audio play ended
-    }
+    // this.currentAudio.source.onended = () => {
+    //   this.eventManager.broadcast('playended', this.currentAudio); //current audio play ended
+    // }
 
   }
 

@@ -18,7 +18,7 @@ export class AnswerComponent implements OnInit, OnChanges {
   @Input() correctOption: any;
   resetsubscription: Subscription;
   ansIndex;
-
+  selectedIndex;
   constructor(private service: QuestionAnswerService) { }
 
   ngOnInit() {
@@ -63,10 +63,13 @@ export class AnswerComponent implements OnInit, OnChanges {
   }
 
   OnAnswerSelected(event, idx) {
+    // debugger;
+    this.selectedIndex = idx;
     this.resetAnswers();
     this.answers.forEach(answer => {
       answer.isSelected = false;
     });
+    
     this.answers[idx].isSelected = true;
     console.log(this.answers);
     if (event.currentTarget.classList.contains('answer')) {
@@ -74,6 +77,12 @@ export class AnswerComponent implements OnInit, OnChanges {
     }
     this.ansIndex = { index: idx };
     this.service.index.next(this.ansIndex);
+  }
+
+  onKeyDown(event,idx) {
+    if (event.keyCode === 13) {
+      this.OnAnswerSelected(event,idx);
+    }
   }
 
 }
