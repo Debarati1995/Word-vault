@@ -177,7 +177,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   startAnimation(a: number) {
 
     console.log(a);
-
+    
     this.sprImage.nativeElement['style'].backgroundPositionX = -this.spriteImage.frames[this.images].frame.x + 'px';
     this.sprImage.nativeElement['style'].backgroundPositionY = -this.spriteImage.frames[this.images].frame.y + 'px';
   }
