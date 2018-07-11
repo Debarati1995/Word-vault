@@ -216,4 +216,8 @@ export class DashboardComponent implements OnInit, OnChanges {
     this.sprImage.nativeElement['style'].backgroundPositionX = -this.spriteImage.frames[this.images].frame.x + 'px';
     this.sprImage.nativeElement['style'].backgroundPositionY = -this.spriteImage.frames[this.images].frame.y + 'px';
   }
+
+  playDirectionAudio() {
+    this.soundService.play(this.audios[4]);
+  }
 }

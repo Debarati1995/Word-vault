@@ -19,7 +19,7 @@ export class QuestionAnswerService {
       'sfxPool': {
          '@value': 'pool1'
       },
-      'vaultImage': 'photo_ring.jpg',
+      'vaultImage': 'assets/images/Reward-PNG-Photo.png',
       'rounds': {
          'round1': {
             'questions': [
@@ -34,9 +34,9 @@ export class QuestionAnswerService {
                      'splendid'
                   ],
                   'correctAnswer': '3',
-                  "frameRange": {
-                    "start": 1,
-                    "end": 51
+                  'frameRange': {
+                    'start': 1,
+                    'end': 51
                   }
                },
                {
@@ -50,9 +50,9 @@ export class QuestionAnswerService {
                      'special'
                   ],
                   'correctAnswer': '2',
-                  "frameRange": {
-                    "start": 52,
-                    "end": 138
+                  'frameRange': {
+                    'start': 52,
+                    'end': 138
                   }
                }
             ]
@@ -70,9 +70,9 @@ export class QuestionAnswerService {
                      'special'
                   ],
                   'correctAnswer': '2',
-                  "frameRange": {
-                    "start": 139,
-                    "end": 184
+                  'frameRange': {
+                    'start': 139,
+                    'end': 184
                   }
                },
                {
@@ -86,9 +86,9 @@ export class QuestionAnswerService {
                      'splendid'
                   ],
                   'correctAnswer': '3',
-                  "frameRange": {
-                    "start": 185,
-                    "end": 230
+                  'frameRange': {
+                    'start': 185,
+                    'end': 230
                   }
                },
                {
@@ -102,9 +102,9 @@ export class QuestionAnswerService {
                      'splendid'
                   ],
                   'correctAnswer': '3',
-                  "frameRange": {
-                    "start": 231,
-                    "end": 276
+                  'frameRange': {
+                    'start': 231,
+                    'end': 276
                   }
                }
             ]
@@ -122,9 +122,9 @@ export class QuestionAnswerService {
                      'partner'
                   ],
                   'correctAnswer': '3',
-                  "frameRange": {
-                    "start": 277,
-                    "end": 322
+                  'frameRange': {
+                    'start': 277,
+                    'end': 322
                   }
                },
                {
@@ -138,9 +138,9 @@ export class QuestionAnswerService {
                      'partner'
                   ],
                   'correctAnswer': '1',
-                  "frameRange": {
-                    "start": 323,
-                    "end": 368
+                  'frameRange': {
+                    'start': 323,
+                    'end': 368
                   }
                },
                {
@@ -154,9 +154,9 @@ export class QuestionAnswerService {
                      'splendid'
                   ],
                   'correctAnswer': '2',
-                  "frameRange": {
-                    "start": 369,
-                    "end": 456
+                  'frameRange': {
+                    'start': 369,
+                    'end': 456
                   }
                }
             ]

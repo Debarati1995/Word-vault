@@ -1,7 +1,7 @@
 <div>
 
     <div class="page-header header">
-        <p style="font-size: 20px;">Your Turn: Vocabulary</p>
+        <p style="font-size: 20px;"> {{responseData.title}}</p>
         <div class="button-container">
             <button class="help-button" data-toggle="modal" data-target="#myModal">?</button>
             <button class="exit-button" (click)="close_window();">X</button>
@@ -11,7 +11,7 @@
     <section class="content-wrapper">
 
         <p class="instruction">
-            <button class="speaker-icon-button">
+            <button class="speaker-icon-button" (click)="playDirectionAudio()">
         <img class="speaker-icon" src="assets/images/speaker_icon.png" alt="">
       </button> {{responseData.directions}}
             <!-- <audio #audios controls autoplay preload="auto"><source  [src]="src" type="audio/mp3"></audio> -->
@@ -20,7 +20,7 @@
         <app-question [currentQuestion]="questions[index]"></app-question>
         <!-- <app-animate></app-animate> -->
         <div class="animate-container" #sprImage [style.background-position]="">
-            <img class="reward-image" src="assets/images/Reward-PNG-Photo.png" *ngIf='showReward'/>
+            <img class="reward-image" [src]="responseData.vaultImage" *ngIf='showReward'/>
         </div>
         <app-answer [currentAnswer]="answers[index]" [tryCount]="tryCount" [correctOption]="currentQuesObj[index].correctAnswer" [currentIndex]="index"></app-answer>
         <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]"></app-validation>

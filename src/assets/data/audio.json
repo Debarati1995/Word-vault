@@ -13,6 +13,10 @@
          {
             "path": "assets/audios/reward1.mp3",
             "isEnabled": "false"
+        },
+        {
+            "path": "assets/audios/dl_vocabulary_completes_sentence_2.mp3",
+            "isEnabled": "false"
         }
     ]
 }

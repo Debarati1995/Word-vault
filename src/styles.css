@@ -53,6 +53,10 @@
     box-shadow: 0px 2px 2px 1px #e4d3d9
 }
 
+.speaker-icon-button:hover {
+    background-color: #e7eef1;
+}
+
 .speaker-icon {
     width: 2rem;
 }
