@@ -20,7 +20,7 @@
         <app-question [currentQuestion]="questions[index]"></app-question>
         <!-- <app-animate></app-animate> -->
         <div class="animate-container" #sprImage [style.background-position]="">
-            <!-- <img class="animate-image" [src]="img" /> -->
+            <img class="reward-image" src="assets/images/Reward-PNG-Photo.png" *ngIf='showReward'/>
         </div>
         <app-answer [currentAnswer]="answers[index]" [tryCount]="tryCount" [correctOption]="currentQuesObj[index].correctAnswer" [currentIndex]="index"></app-answer>
         <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]"></app-validation>

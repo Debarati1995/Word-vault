@@ -67,6 +67,31 @@
     text-shadow: 1px 1px #af1936;
 }
 
+/*Vault Animation STARTS*/
+
+.animate-container {
+    display: inline-block;
+    width: 516px;
+    /* width: 516px; */
+    margin-left: 90px;
+    margin-top: 60px;
+    height: 418px;
+    background-image: url('assets/images/vault-sprite.png');
+}
+
+.animate-image {
+    width: 384px;
+    margin-top: 60px;
+    margin-left: 2px;
+}
+.reward-image {
+    width: 368px;
+    position: relative;
+    left: 7rem;
+    top: 2rem;
+}
+
+/* Vault Animation ENDS */
 
 /* Modal Section STARTS */
 
@@ -256,24 +281,3 @@
 
 /* Footer Section ENDS */
 
-
-/*side animation image*/
-
-.animate-container {
-    display: inline-block;
-    width: 516px;
-    /* width: 516px; */
-    margin-left: 90px;
-    margin-top: 60px;
-    height: 418px;
-    background-image: url('assets/images/vault-sprite.png');
-}
-
-.animate-image {
-    width: 384px;
-    margin-top: 60px;
-    margin-left: 2px;
-}
-
-
-/*side animation image end*/

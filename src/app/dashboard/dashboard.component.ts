@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   audio;
   src = '';
   audios = [];
+  showReward = false;
   @ViewChild('sprImage') sprImage: any;
   @ViewChild('modal') modal: any;
 
@@ -133,19 +134,21 @@ export class DashboardComponent implements OnInit, OnChanges {
       } else {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
           localStorage.setItem('last_question', 'true');
-          this.soundService.play(this.audios[3]);
+          setTimeout(() => {
+            this.soundService.play(this.audios[3]);
+            this.showReward = true;
+          }, 4200);
         } else {
           setTimeout(() => {
             this.index = 0;
           this.getQuestionData();
-          this.soundService.play(this.audios[0]);
           }, 4000);
+          this.soundService.play(this.audios[0]);
           this.currentRound += 1;
         }
         if (obj.isEmit) {
           this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
         }
-       
       }
 
       this.vaultIndex++;
