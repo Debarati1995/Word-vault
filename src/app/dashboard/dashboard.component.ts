@@ -130,6 +130,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         }
         setTimeout(() => {
           this.index++;
+          this.tryCount = 0;
         }, 2500);
       } else {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
@@ -141,6 +142,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         } else {
           setTimeout(() => {
             this.index = 0;
+            this.tryCount = 0;
           this.getQuestionData();
           }, 4000);
           this.soundService.play(this.audios[0]);

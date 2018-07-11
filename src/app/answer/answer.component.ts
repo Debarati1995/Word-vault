@@ -25,7 +25,7 @@ export class AnswerComponent implements OnInit, OnChanges {
 
   ngOnInit() {}
 
-  ngOnChanges() {
+  ngOnChanges(changes: any) {
     // console.log(parseInt(this.correctOption));
     this.correctOption = parseInt(this.correctOption);
     this.answers = [];
