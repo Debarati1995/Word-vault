@@ -26,7 +26,7 @@ export class AnswerComponent implements OnInit, OnChanges {
   ngOnInit() {}
 
   ngOnChanges() {
-    console.log(parseInt(this.correctOption));
+    // console.log(parseInt(this.correctOption));
     this.correctOption = parseInt(this.correctOption);
     this.answers = [];
     if (this.currentAnswer) {
@@ -81,9 +81,9 @@ export class AnswerComponent implements OnInit, OnChanges {
     this.service.index.next(this.ansIndex);
   }
 
-  onKeyDown(event,idx){
+  onKeyDown(event, idx) {
     if (event.keyCode === 13) {
-      this.OnAnswerSelected(event,idx);
+      this.OnAnswerSelected(event, idx);
     }
   }
 }
