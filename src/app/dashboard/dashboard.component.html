@@ -33,7 +33,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" (click)="openModal()">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
+                    <h4 class="modal-title">Help</h4>
                 </div>
                 <div class="modal-body" tabindex="0">
                     <div class="word-vault-help">
@@ -47,7 +47,11 @@
                         <p>Once you complete three rounds,the vault will open to reveal your reward!</p>
                         <p>Click the <b>?</b>for help and to hear these directions again.</p>
                     </div>
-                    <div class="instruction-video-container"><img src="assets/images/Capture.PNG" alt="" /></div>
+                    <div class="instruction-video-container">
+                        <video autoplay preload="auto">
+  <source src="assets/video/word_vault_help.mp4" type="video/mp4">
+</video>
+                    </div>
                 </div>
             </div>
 

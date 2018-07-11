@@ -19,7 +19,7 @@ export class QuestionAnswerService {
       'sfxPool': {
          '@value': 'pool1'
       },
-      'vaultImage': 'assets/images/Reward-PNG-Photo.png',
+      'vaultImage': 'assets/images/win.png',
       'rounds': {
          'round1': {
             'questions': [

@@ -1,293 +1,287 @@
-/* You can add global styles to this file, and also import other style files */
-
-
-/* Header Section STARTS */
-
-.header {
-    padding-left: 8rem;
-    background-color: #af1936;
-    color: beige!important;
-    padding-bottom: 0px !important;
-    position: absolute;
-    width: 100%;
-    border-bottom: 4px solid #FFC107;
-    z-index: 1;
-}
-
-.page-header {
-    margin: 0 !important
-}
-
-.exit-button,
-.help-button {
-    border-radius: 30px;
-    /* background-color: #3498a7; */
-    background-color: #333333;
-    border: 2px solid #ffc107;
-}
-
-.button-container {
-    float: right;
-    margin-top: -33px;
-    margin-right: 28px;
-}
-
-
-/* Header Section ENDS */
-
-
-/* Main Content STARTS */
-
-.content-wrapper {
-    position: absolute;
-    top: 4rem;
-    width: 100%;
-    height: 87vh;
-    width: 100%;
-    height: 86vh;
-    background-image: url('assets/images/background-image-html.jpg');
-}
-
-.speaker-icon-button {
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0px 2px 2px 1px #e4d3d9
-}
-
-.speaker-icon-button:hover {
-    background-color: #e7eef1;
-}
-
-.speaker-icon {
-    width: 2rem;
-}
-
-.instruction {
-    margin-left: 7%;
-    margin-top: 1.4rem;
-    color: #fffbef;
-    font-size: 18px;
-    text-align: left;
-    font-weight: bold;
-    text-shadow: 1px 1px #af1936;
-}
-
-
-/*Vault Animation STARTS*/
-
-.animate-container {
-    display: inline-block;
-    width: 516px;
-    /* width: 516px; */
-    margin-left: 90px;
-    margin-top: 60px;
-    height: 418px;
-    background-image: url('assets/images/vault-sprite.png');
-}
-
-.animate-image {
-    width: 384px;
-    margin-top: 60px;
-    margin-left: 2px;
-}
-
-.reward-image {
-    width: 368px;
-    position: relative;
-    left: 7rem;
-    top: 2rem;
-}
-
-
-/* Vault Animation ENDS */
-
-
-/* Modal Section STARTS */
-
-.modal-dialog {
-    width: 70%;
-}
-
-.modal-content {
-    height: 80vh;
-    width: 100%;
-}
-
-.modal-header {
-    background-color: #0063b1;
-    color: #ffc107;
-}
-
-.close {
-    color: #ffc107!important;
-    opacity: 1!important;
-}
-
-.modal-body>div {
-    /*border: 1px solid black;*/
-    display: inline-grid;
-    height: 65vh;
-    float: left;
-}
-
-.word-vault-help {
-    width: 29%;
-    border: 1px solid black;
-}
-
-.instruction-video-container {
-    width: 70%;
-    border: none;
-}
-
-.instruction-video-container>img {
-    position: relative;
-    top: 5rem;
-    left: 8rem;
-    height: 50vh;
-}
-
-
-/* Modal Section ENDS */
-
-
-/* Question Section STARTS */
-
-.question-container {
-    position: absolute;
-    left: 10%;
-    padding: 4px;
-    font-size: 19px;
-    top: 5rem;
-    background-color: white;
-    border: 4px solid #676565;
-    width: 80%;
-}
-
-
-/* Question Section ENDS */
-
-
-/* Answer Section STARTS */
-
-.answer-container {
-    position: relative;
-    top: 10rem;
-    float: right;
-    display: inline-block;
-    width: 38%;
-    height: 45vh;
-    margin-right: 10%;
-    padding-top: 2rem;
-}
-
-.answer {
-    background-color: white;
-    padding: 10px;
-    border: 2px solid #676565;
-    border-radius: 30px;
-    font-size: 17px;
-    text-align: center;
-    margin-bottom: 1rem;
-    cursor: pointer;
-}
-
-.indicator,
-.indicator-img {
-    width: 50px;
-    position: absolute;
-    float: left;
-    left: 0px;
-    border-radius: 50%;
-    margin-top: -7px;
-    /* top: -14px; */
-    display: inline-block;
-}
-
-.deselected {
-    background-color: #cfd0d0;
-}
-
-.selected {
-    background-color: #ffc107;
-}
-
-
-/* Answer Section ENDS */
-
-
-/* Validation section STARTS */
-
-.validation-container {
-    position: absolute;
-    bottom: 4rem;
-    right: 0;
-    display: inline-block;
-    width: auto;
-    height: 5vh;
-    margin-right: 10%;
-}
-
-.validation-container>button {
-    /* background-color: #3498a7; */
-    background-color: #af1936;
-    outline: none;
-    border: none;
-    color: #e7eef1;
-    font-size: 1.7rem;
-    width: 8rem;
-    height: 3rem;
-    border-radius: 19px;
-    /* box-shadow: 3px 4px 6px 0px #185b65; */
-    box-shadow: 3px 4px 6px 0px #29050c;
-    margin-left: 1rem;
-    cursor: pointer;
-}
-
-.validation-container>button:active {
-    box-shadow: 1px 2px 5px 0px #a09d9d;
-}
-
-.validation-container>button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-
-/* Validation section ENDS */
-
-
-/* Main Content ENDS */
-
-
-/* Footer Section STARTS */
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    background-color: #af1936;
-    height: 5rem;
-    border-top: 4px solid #FFC107;
-    z-index: 1;
-}
-
-.footer>div {
-    display: inline-block;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    box-shadow: inset 0px 2px 1px 0px #611414;
-    position: relative;
-    top: 40%;
-    left: 48%;
-    margin: 0.25rem;
-}
-
-.active-screen {
-    background-color: #ffc107;
-}
-
-
-/* Footer Section ENDS */
+        /* You can add global styles to this file, and also import other style files */
+        /* Header Section STARTS */
+        
+        .header {
+            padding-left: 8rem;
+            background-color: #af1936;
+            color: beige!important;
+            padding-bottom: 0px !important;
+            position: absolute;
+            width: 100%;
+            border-bottom: 4px solid #FFC107;
+            z-index: 1;
+        }
+        
+        .page-header {
+            margin: 0 !important
+        }
+        
+        .exit-button,
+        .help-button {
+            border-radius: 30px;
+            /* background-color: #3498a7; */
+            background-color: #333333;
+            border: 2px solid #ffc107;
+        }
+        
+        .button-container {
+            float: right;
+            margin-top: -33px;
+            margin-right: 28px;
+        }
+        /* Header Section ENDS */
+        /* Main Content STARTS */
+        
+        .content-wrapper {
+            position: absolute;
+            top: 5rem;
+            width: 100%;
+            /* height: 87vh; */
+            width: 100%;
+            height: 87vh !important;
+            background-image: url('assets/images/background-image-html.jpg');
+            background-size: cover;
+        }
+        
+        .speaker-icon-button {
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0px 2px 2px 1px #e4d3d9
+        }
+        
+        .speaker-icon-button:hover {
+            background-color: #e7eef1;
+        }
+        
+        .speaker-icon {
+            width: 2rem;
+        }
+        
+        .instruction {
+            margin-left: 7%;
+            margin-top: 1.4rem;
+            color: #fffbef;
+            font-size: 18px;
+            text-align: left;
+            font-weight: bold;
+            text-shadow: 1px 1px #af1936;
+        }
+        /*Vault Animation STARTS*/
+        
+        .animate-container {
+            display: inline-block;
+            width: 516px;
+            /* width: 516px; */
+            margin-left: 90px;
+            margin-top: 60px;
+            height: 418px;
+            background-image: url('assets/images/vault-sprite.png');
+        }
+        
+        .animate-image {
+            width: 384px;
+            margin-top: 60px;
+            margin-left: 2px;
+        }
+        
+        .reward-image {
+            width: 368px;
+            position: relative;
+            left: 7rem;
+            top: 2rem;
+        }
+        /* Vault Animation ENDS */
+        /* Modal Section STARTS */
+        
+        .modal-dialog {
+            width: 70%;
+        }
+        
+        .modal-content {
+            height: 80vh;
+            width: 100%;
+        }
+        
+        .modal-header {
+            background-color: #0063b1;
+            color: #ffc107;
+        }
+        
+        .close {
+            color: #ffc107!important;
+            opacity: 1!important;
+        }
+        
+        .modal-body>div {
+            /*border: 1px solid black;*/
+            display: inline-grid;
+            height: 65vh;
+            float: left;
+        }
+        
+        .word-vault-help {
+            width: 29%;
+            border: 1px solid black;
+        }
+        
+        .instruction-video-container {
+            width: 70%;
+            border: none;
+        }
+        
+        .instruction-video-container>video {
+            position: relative;
+            height: auto;
+            width: 90%;
+            margin-top: 3%;
+            margin-left: 7%;
+        }
+        /* Modal Section ENDS */
+        /* Question Section STARTS */
+        
+        .question-container {
+            position: absolute;
+            left: 10%;
+            padding: 4px;
+            font-size: 19px;
+            top: 5rem;
+            background-color: white;
+            border: 4px solid #676565;
+            width: 80%;
+        }
+        /* Question Section ENDS */
+        /* Answer Section STARTS */
+        
+        .answer-container {
+            position: relative;
+            top: 10rem;
+            float: right;
+            display: inline-block;
+            width: 30%;
+            height: 45vh;
+            margin-right: 6%;
+            padding-top: 2rem;
+        }
+        
+        .answer {
+            background-color: white;
+            padding: 10px;
+            border: 2px solid #676565;
+            border-radius: 30px;
+            font-size: 17px;
+            text-align: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        
+        .indicator,
+        .indicator-img {
+            width: 50px;
+            position: absolute;
+            float: left;
+            left: 0px;
+            border-radius: 50%;
+            margin-top: -7px;
+            /* top: -14px; */
+            display: inline-block;
+        }
+        
+        .deselected {
+            background-color: #cfd0d0;
+        }
+        
+        .selected {
+            background-color: #ffc107;
+        }
+        /* Answer Section ENDS */
+        /* Validation section STARTS */
+        
+        .validation-container {
+            position: absolute;
+            bottom: 4rem;
+            right: 0;
+            display: inline-block;
+            width: auto;
+            height: 5vh;
+            margin-right: 10%;
+        }
+        
+        .validation-container>button {
+            /* background-color: #3498a7; */
+            background-color: #af1936;
+            outline: none;
+            border: none;
+            color: #e7eef1;
+            font-size: 1.7rem;
+            width: 8rem;
+            height: 3rem;
+            border-radius: 19px;
+            /* box-shadow: 3px 4px 6px 0px #185b65; */
+            box-shadow: 3px 4px 6px 0px #29050c;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+        
+        .validation-container>button:active {
+            box-shadow: 1px 2px 5px 0px #a09d9d;
+        }
+        
+        .validation-container>button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        /* Validation section ENDS */
+        /* Main Content ENDS */
+        /* Footer Section STARTS */
+        
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            background-color: #af1936;
+            height: 5rem;
+            border-top: 4px solid #FFC107;
+            z-index: 1;
+        }
+        
+        .footer>div {
+            display: inline-block;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            box-shadow: inset 0px 2px 1px 0px #611414;
+            position: relative;
+            top: 40%;
+            left: 48%;
+            margin: 0.25rem;
+        }
+        
+        .active-screen {
+            background-color: #ffc107;
+        }
+        /* Footer Section ENDS */
+        /*for resonsiveness   */
+        
+        @media only screen and (max-device-width: 768px) {
+            .answer-container {
+                position: relative;
+                top: 2rem;
+                right: 30rem;
+                /* float: right; */
+                display: inline-block;
+                width: 43%;
+                height: 45vh;
+                margin-right: 6%;
+                padding-top: 2rem;
+            }
+            .content-wrapper {
+                height: 91vh !important;
+            }
+            .question-container {
+                top: 8rem;
+            }
+            .animate-container {
+                margin-top: 77px;
+            }
+        }
