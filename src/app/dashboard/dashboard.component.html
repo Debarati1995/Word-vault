@@ -1,7 +1,7 @@
 <div>
 
     <div class="page-header header">
-        <p style="font-size: 20px;"> {{responseData.title}}</p>
+        <p style="font-size: 20px;margin-top: 8px;"> {{responseData.title}}</p>
         <div class="button-container">
             <button class="help-button" data-toggle="modal" data-target="#myModal">?</button>
             <button class="exit-button" (click)="close_window();">X</button>
@@ -20,7 +20,7 @@
         <app-question [currentQuestion]="questions[index]"></app-question>
         <!-- <app-animate></app-animate> -->
         <div class="animate-container" #sprImage [style.background-position]="">
-            <img class="reward-image" [src]="responseData.vaultImage" *ngIf='showReward'/>
+            <img class="reward-image" [src]="responseData.vaultImage" *ngIf='showReward' />
         </div>
         <app-answer [currentAnswer]="answers[index]" [tryCount]="tryCount" [correctOption]="currentQuesObj[index].correctAnswer" [currentIndex]="index"></app-answer>
         <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]"></app-validation>
