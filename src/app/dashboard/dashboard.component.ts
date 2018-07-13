@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   src = '';
   audios = [];
   showReward = false;
+  disableReset = false;
   @ViewChild('sprImage') sprImage: any;
   @ViewChild('closeButton') closeButton: any;
   @ViewChild('content') content:any;
@@ -137,6 +138,7 @@ export class DashboardComponent implements OnInit, OnChanges {
           setTimeout(() => {
             this.soundService.play(this.audios[3]);
             this.showReward = true;
+            this.disableReset = true;
           }, 4200);
         } else {
           setTimeout(() => {

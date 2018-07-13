@@ -13,12 +13,14 @@ export class ValidationComponent implements OnInit {
   @Output()
   currentIndex: EventEmitter<any> = new EventEmitter();
   @Input() currentQuestion: any;
+  @Input() isLastQuestion: boolean;
   responseData;
   index = 0;
   ansIndex: number;
   indexSubscription: Subscription;
   enableOkButton;
   tryCount = 0;
+
   constructor(private service: QuestionAnswerService) { }
 
   ngOnInit() {

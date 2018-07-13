@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChild, ElementRef} from '@angular/core';
 import { QuestionAnswerService } from '../question-answer.service';
 
 import {
@@ -18,6 +18,7 @@ export class AnswerComponent implements OnInit, OnChanges {
   @Input() correctOption: any;
   @Input() currentIndex: any;
   @ViewChild('answerContainer') answerContainer: any;
+  @ViewChild('dynamicdata') dynamicdata: ElementRef;
   previousIndex = 0;
   resetsubscription: Subscription;
   ansIndex;
@@ -73,10 +74,11 @@ export class AnswerComponent implements OnInit, OnChanges {
       answer.isSelected = false;
     });
     this.answers[idx].isSelected = true;
-    this.answerContainer.nativeElement.setAttribute('aria-label', this.answers[idx].ansText+' is selected')
+    // this.answerContainer.nativeElement.setAttribute('aria-label', this.answers[idx].ansText + ' is selected');
+    this.dynamicdata.nativeElement.innerHTML = this.answers[idx].ansText + ' is selected';
     console.log(this.answers[idx].ansText);
     if (event.currentTarget.classList.contains('answer')) {
-      event.currentTarget.children[0].children[0].classList.add('selected');
+      event.currentTarget.children[1].children[0].classList.add('selected');
     }
     this.ansIndex = { index: idx };
     this.service.index.next(this.ansIndex);
