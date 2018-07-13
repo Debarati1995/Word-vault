@@ -144,7 +144,7 @@ export class DashboardComponent implements OnInit, OnChanges {
             this.tryCount = 0;
           this.getQuestionData();
           }, 4000);
-          this.soundService.play(this.audios[0]);
+          this.soundService.play(this.audios[1]);
           this.currentRound += 1;
         }
         if (obj.isEmit) {
@@ -160,6 +160,9 @@ export class DashboardComponent implements OnInit, OnChanges {
           round.isActive = false;
         }
       });
+    }
+    if (this.tryCount===1) {
+      this.soundService.play(this.audios[2]);
     }
   }
 

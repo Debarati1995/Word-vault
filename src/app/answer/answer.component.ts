@@ -68,7 +68,6 @@ export class AnswerComponent implements OnInit, OnChanges {
   }
 
   OnAnswerSelected(event, idx) {
-    debugger;
     this.resetAnswers();
     this.answers.forEach(answer => {
       answer.isSelected = false;
