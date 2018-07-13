@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChild } from '@angular/core';
 import { QuestionAnswerService } from '../question-answer.service';
 
 import {
@@ -17,6 +17,7 @@ export class AnswerComponent implements OnInit, OnChanges {
   @Input() tryCount: any;
   @Input() correctOption: any;
   @Input() currentIndex: any;
+  @ViewChild('answerContainer') answerContainer: any;
   previousIndex = 0;
   resetsubscription: Subscription;
   ansIndex;
@@ -46,7 +47,6 @@ export class AnswerComponent implements OnInit, OnChanges {
         });
       }
       this.previousIndex = this.currentIndex;
-      console.log('answer object', this.answers);
 
     }
     this.resetAnswers();
@@ -68,12 +68,14 @@ export class AnswerComponent implements OnInit, OnChanges {
   }
 
   OnAnswerSelected(event, idx) {
+    debugger;
     this.resetAnswers();
     this.answers.forEach(answer => {
       answer.isSelected = false;
     });
     this.answers[idx].isSelected = true;
-    console.log(this.answers);
+    this.answerContainer.nativeElement.setAttribute('aria-label', this.answers[idx].ansText+' is selected')
+    console.log(this.answers[idx].ansText);
     if (event.currentTarget.classList.contains('answer')) {
       event.currentTarget.children[0].children[0].classList.add('selected');
     }

@@ -1,18 +1,18 @@
-<div>
+<div role="main">
 
     <div class="page-header header">
         <p style="font-size: 20px;margin-top: 8px;"> {{responseData.title}}</p>
         <div class="button-container">
-            <button class="help-button" data-toggle="modal" data-target="#myModal">?</button>
-            <button class="exit-button" (click)="close_window();">X</button>
+            <button class="help-button" (click)="openModal()" data-toggle="modal" data-target="#myModal" aria-label="help">?</button>
+            <button class="exit-button" (click)="close_window();"><span class="sr-only">close</span><span aria-hidden="true">X</span></button>
         </div>
     </div>
 
-    <section class="content-wrapper">
+    <section class="content-wrapper" #content>
 
         <p class="instruction">
             <button class="speaker-icon-button" (click)="playDirectionAudio()">
-        <img class="speaker-icon" src="assets/images/speaker_icon.png" alt="">
+        <img class="speaker-icon" src="assets/images/speaker_icon.png" alt="Play direction">
       </button> {{responseData.directions}}
             <!-- <audio #audios controls autoplay preload="auto"><source  [src]="src" type="audio/mp3"></audio> -->
         </p>
@@ -26,13 +26,13 @@
         <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]"></app-validation>
     </section>
     <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog" #modal>
-        <div class="modal-dialog" tabindex="0">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content" tabindex="0" #closeButton>
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" (click)="openModal()">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Help</h4>
                 </div>
                 <div class="modal-body" tabindex="0">

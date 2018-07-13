@@ -19,7 +19,7 @@ export class QuestionComponent implements OnInit {
   constructor(private service: QuestionAnswerService) {}
 
   ngOnInit() {
-    console.log(this.currentQuestion);
+    // console.log(this.currentQuestion);
 
   }
 
