@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChild } from '@angular/core';
 import { QuestionAnswerService } from '../question-answer.service';
 
 import {
@@ -17,6 +17,7 @@ export class AnswerComponent implements OnInit, OnChanges {
   @Input() tryCount: any;
   @Input() correctOption: any;
   @Input() currentIndex: any;
+  @ViewChild('answerContainer') answerContainer: any;
   previousIndex = 0;
   resetsubscription: Subscription;
   ansIndex;
@@ -26,7 +27,6 @@ export class AnswerComponent implements OnInit, OnChanges {
   ngOnInit() {}
 
   ngOnChanges(changes: any) {
-    // console.log(parseInt(this.correctOption));
     this.correctOption = parseInt(this.correctOption);
     this.answers = [];
     if (this.currentAnswer) {
@@ -46,7 +46,6 @@ export class AnswerComponent implements OnInit, OnChanges {
         });
       }
       this.previousIndex = this.currentIndex;
-      console.log('answer object', this.answers);
 
     }
     this.resetAnswers();
@@ -58,25 +57,16 @@ export class AnswerComponent implements OnInit, OnChanges {
   }
 
   resetAnswers() {
-    const imgArr = Array.from(document.getElementsByClassName('indicator-img'));
-    imgArr.forEach(img => {
-      if (img.classList.contains('selected')) {
-        img.classList.remove('selected');
-        img.classList.add('deselected');
-      }
+    this.answers.forEach(img => {
+      img.isSelected = false;
     });
   }
 
   OnAnswerSelected(event, idx) {
     this.resetAnswers();
-    this.answers.forEach(answer => {
-      answer.isSelected = false;
-    });
     this.answers[idx].isSelected = true;
-    console.log(this.answers);
-    if (event.currentTarget.classList.contains('answer')) {
-      event.currentTarget.children[0].children[0].classList.add('selected');
-    }
+    this.answerContainer.nativeElement.setAttribute('aria-label', this.answers[idx].ansText + ' is selected');
+    console.log(this.answers[idx].ansText);
     this.ansIndex = { index: idx };
     this.service.index.next(this.ansIndex);
   }

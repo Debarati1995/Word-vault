@@ -41,8 +41,10 @@ export class DashboardComponent implements OnInit, OnChanges {
   src = '';
   audios = [];
   showReward = false;
+  disableReset = false;
   @ViewChild('sprImage') sprImage: any;
-  @ViewChild('modal') modal: any;
+  @ViewChild('closeButton') closeButton: any;
+  @ViewChild('content') content: any;
 
 
   constructor(private service: QuestionAnswerService, private animationService: SpritAnimationService, private soundService: SoundService) { }
@@ -75,14 +77,6 @@ export class DashboardComponent implements OnInit, OnChanges {
       this.soundService.fetchAudios(this.audios);
 
     });
-
-    // this.modal.nativeElemnt.on('show', function () {
-    //   this.closeButton.focus();
-    // });
-
-
-
-    // this.img = 'assets/fl/lock0001.png';
   }
 
   ngOnChanges() {
@@ -96,7 +90,6 @@ export class DashboardComponent implements OnInit, OnChanges {
     this.currentQuesObj = [];
     this.service.getJsonData();
     this.responseData = this.service.response;
-    console.log(this.responseData);
     for (const i in this.responseData.rounds) {
       if ((this.round + this.currentRound) === i) {
         this.responseData.rounds[i].questions.forEach(e => {
@@ -106,9 +99,7 @@ export class DashboardComponent implements OnInit, OnChanges {
           this.currentQuesObj.push(e);
         });
         this.currentRoundAnswer.push(this.questions);
-        console.log(this.questions);
       } else {
-        // this.round = i;
         if (this.questions.length) {
           return this.questions;
         }
@@ -118,7 +109,6 @@ export class DashboardComponent implements OnInit, OnChanges {
 
 
   updateIndex(obj: any) {
-    console.log(obj);
     this.tryCount = obj.tryCount;
     if (obj.isEmit || obj.tryCount >= 2) {
       if (this.index < (this.questions.length - 1)) {
@@ -131,20 +121,20 @@ export class DashboardComponent implements OnInit, OnChanges {
         setTimeout(() => {
           this.index++;
           this.tryCount = 0;
-        }, 2500);
+        }, 1000);
       } else {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
-          localStorage.setItem('last_question', 'true');
           setTimeout(() => {
             this.soundService.play(this.audios[3]);
             this.showReward = true;
-          }, 4200);
+          }, 850);
+          this.disableReset = true;
         } else {
           setTimeout(() => {
             this.index = 0;
             this.tryCount = 0;
           this.getQuestionData();
-          }, 4000);
+          }, 1200);
           this.soundService.play(this.audios[0]);
           this.currentRound += 1;
         }
@@ -162,10 +152,14 @@ export class DashboardComponent implements OnInit, OnChanges {
         }
       });
     }
+    if (this.tryCount === 1) {
+      this.soundService.play(this.audios[2]);
+    }
   }
 
   close_window() {
-    window.close();
+  window.open('your current page URL', '_self', '');
+  window.close();
   }
   // function for getting the lock numbers and x y position
   getVaultAnimation(start, end) {
@@ -187,33 +181,21 @@ export class DashboardComponent implements OnInit, OnChanges {
       this.startAnimation(i);
       if (i++ === end) {
         clearInterval(animateImg);
-        // if (this.index < (this.questions.length - 1)) {
-        //   this.index++;
-        // } else {
-        //   this.index = 0;
-        // }
       }
-    }, 50);
-
-    // let lockNumber;
-    // console.log('spritearray', );
-
+    }, 10);
   }
+
   openModal() {
+    // this.content.nativeElement.setAttribute('aria-hidden', true);
     setTimeout(() => {
-      this.modal.nativeElemnt.on('show', function () {
-        this.closeButton.focus();
-      });
+      this.closeButton.nativeElement.focus();
     }, 500);
 
-    // console.log("modal")
   }
-
-  // return this.spriteArr;
 
   startAnimation(a: number) {
 
-    console.log(a);
+    // console.log(a);
 
     this.sprImage.nativeElement['style'].backgroundPositionX = -this.spriteImage.frames[this.images].frame.x + 'px';
     this.sprImage.nativeElement['style'].backgroundPositionY = -this.spriteImage.frames[this.images].frame.y + 'px';

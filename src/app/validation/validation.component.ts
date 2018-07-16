@@ -13,6 +13,7 @@ export class ValidationComponent implements OnInit {
   @Output()
   currentIndex: EventEmitter<any> = new EventEmitter();
   @Input() currentQuestion: any;
+  @Input() isLastQuestion: boolean;
   responseData;
   index = 0;
   ansIndex: number;
@@ -35,7 +36,7 @@ export class ValidationComponent implements OnInit {
   }
   validate() {
 
-    console.log(this.currentQuestion.correctAnswer);
+    // console.log(this.currentQuestion.correctAnswer);
     // debugger;
     if (parseInt(this.currentQuestion.correctAnswer) === this.ansIndex + 1) {
       this.currentIndex.emit({ 'isEmit': true, 'tryCount': this.tryCount });
@@ -44,8 +45,11 @@ export class ValidationComponent implements OnInit {
     } else {
       this.reset();
       this.tryCount++;
+      if (this.tryCount === 1) {
+        this.currentIndex.emit({ 'isEmit': false, 'tryCount': this.tryCount });
+      }
       if (this.tryCount === 2) {
-        console.log('2 done');
+        // console.log('2 done');
         this.currentIndex.emit({ 'isEmit': false, 'tryCount': this.tryCount });
         this.tryCount = 0;
       }

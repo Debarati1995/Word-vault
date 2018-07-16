@@ -39,7 +39,7 @@ export class SoundService {
         });
       })
     )).subscribe((buffer) => {
-      console.log('Audio loading complete');
+      // console.log('Audio loading complete');
     })
   }
 

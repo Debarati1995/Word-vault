@@ -1,5 +1,7 @@
 .correct {
     background-color: green;
+    color: #fff;
+    font-weight: bold;
 }
 
 .wrong {
