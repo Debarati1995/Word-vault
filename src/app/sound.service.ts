@@ -27,7 +27,7 @@ export class SoundService {
         this.audioMap[audio] = abuffer;
       });
 
-    })
+    });
   }
 
   fetchAudios(arr: Array<string>) {
@@ -40,7 +40,7 @@ export class SoundService {
       })
     )).subscribe((buffer) => {
       // console.log('Audio loading complete');
-    })
+    });
   }
 
   /*
@@ -49,10 +49,12 @@ export class SoundService {
   */
   play(audio: string) {
 
-    //if audio is already playing
-    if (this.currentAudio) this.stop();
+    // if audio is already playing
+    if (this.currentAudio) {
+      this.stop();
+    }
 
-    //if audio not fetched already 
+    // if audio not fetched already
     if (!this.audioMap[audio]) {
       this.fetchAudio(audio).subscribe(() => {
         this.play(audio);
@@ -70,7 +72,7 @@ export class SoundService {
 
     this.currentAudio.source.onended = () => {
       // this.eventManager.broadcast('playended', this.currentAudio); //current audio play ended
-    }
+    };
 
   }
 
@@ -80,7 +82,9 @@ export class SoundService {
   */
   stop() {
 
-    if (!this.currentAudio) return;
+    if (!this.currentAudio) {
+      return;
+    }
 
     if (this.currentAudio.source.stop) {
       this.currentAudio.source.stop(0);
@@ -91,7 +95,7 @@ export class SoundService {
   }
 
   createSource(buffer) {
-    let source = this.context.createBufferSource(),
+    const source = this.context.createBufferSource(),
       gainNode = this.context.createGain ? this.context.createGain() : this.context.createGainNode();
     source.buffer = buffer;
 
@@ -103,6 +107,6 @@ export class SoundService {
     return {
       source: source,
       gainNode: gainNode
-    }
+    };
   }
 }

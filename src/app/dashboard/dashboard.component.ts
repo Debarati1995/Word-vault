@@ -121,21 +121,21 @@ export class DashboardComponent implements OnInit, OnChanges {
         setTimeout(() => {
           this.index++;
           this.tryCount = 0;
-        }, 1000);
+        }, 2000);
       } else {
         if ((Object.keys(this.responseData.rounds).length === this.currentRound) && (this.index === this.questions.length - 1)) {
           setTimeout(() => {
-            this.soundService.play(this.audios[3]);
             this.showReward = true;
-          }, 850);
+            this.soundService.play(this.audios[3]);
+          }, 1800);
           this.disableReset = true;
         } else {
           setTimeout(() => {
             this.index = 0;
             this.tryCount = 0;
           this.getQuestionData();
-          }, 1200);
-          this.soundService.play(this.audios[0]);
+          }, 2000);
+          this.soundService.play(this.audios[1]);
           this.currentRound += 1;
         }
         if (obj.isEmit) {
@@ -152,7 +152,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         }
       });
     }
-    if (this.tryCount === 1) {
+    if (this.tryCount === 1 && !obj.isEmit) {
       this.soundService.play(this.audios[2]);
     }
   }
@@ -182,7 +182,7 @@ export class DashboardComponent implements OnInit, OnChanges {
       if (i++ === end) {
         clearInterval(animateImg);
       }
-    }, 10);
+    }, 25);
   }
 
   openModal() {
@@ -195,7 +195,7 @@ export class DashboardComponent implements OnInit, OnChanges {
 
   startAnimation(a: number) {
 
-    // console.log(a);
+    console.log(a);
 
     this.sprImage.nativeElement['style'].backgroundPositionX = -this.spriteImage.frames[this.images].frame.x + 'px';
     this.sprImage.nativeElement['style'].backgroundPositionY = -this.spriteImage.frames[this.images].frame.y + 'px';

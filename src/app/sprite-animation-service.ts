@@ -14,5 +14,4 @@ export class SpritAnimationService {
     getAudioData() {
         return this.http.get('assets/data/audio.json');
     }
-    
 }

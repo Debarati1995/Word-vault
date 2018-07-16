@@ -1,65 +1,76 @@
 <div role="main">
 
-    <div class="page-header header">
-        <p style="font-size: 20px;margin-top: 8px;"> {{responseData.title}}</p>
-        <div class="button-container">
-            <button class="help-button" (click)="openModal()" data-toggle="modal" data-target="#myModal" aria-label="help">?</button>
-            <button class="exit-button" (click)="close_window();"><span class="sr-only">close</span><span aria-hidden="true">X</span></button>
-        </div>
+  <div class="page-header header">
+    <p style="font-size: 20px;margin-top: 8px;"> {{responseData.title}}</p>
+    <div class="button-container">
+      <button class="help-button" (click)="openModal()" data-toggle="modal" data-target="#myModal" aria-label="help">?</button>
+      <button class="exit-button" (click)="close_window();">
+        <span class="sr-only">close</span>
+        <span aria-hidden="true">X</span>
+      </button>
     </div>
+  </div>
 
-    <section class="content-wrapper" #content>
+  <section class="content-wrapper" #content>
 
-        <p class="instruction">
-            <button class="speaker-icon-button" (click)="playDirectionAudio()">
+    <p class="instruction">
+      <button class="speaker-icon-button" (click)="playDirectionAudio()">
         <img class="speaker-icon" src="assets/images/speaker_icon.png" alt="Play direction">
       </button> {{responseData.directions}}
-            <!-- <audio #audios controls autoplay preload="auto"><source  [src]="src" type="audio/mp3"></audio> -->
-        </p>
+      <!-- <audio #audios controls autoplay preload="auto"><source  [src]="src" type="audio/mp3"></audio> -->
+    </p>
 
-        <app-question [currentQuestion]="questions[index]"></app-question>
-        <!-- <app-animate></app-animate> -->
-        <div class="animate-container" #sprImage [style.background-position]="">
-            <img class="reward-image" [src]="responseData.vaultImage" *ngIf='showReward' />
-        </div>
-        <app-answer [currentAnswer]="answers[index]" [tryCount]="tryCount" [correctOption]="currentQuesObj[index].correctAnswer" [currentIndex]="index"></app-answer>
-        <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]" [isLastQuestion]="disableReset"></app-validation>
-    </section>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content" tabindex="0" #closeButton>
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span  class="sr-only">close</span><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Help</h4>
-                </div>
-                <div class="modal-body" tabindex="0">
-                    <div class="word-vault-help">
-                        <b>Word vault Help</b>
-                        <p>Welcome!</p>
-                        <p>in this activity,you will us your reading skills to crack open this vault.</p>
-                        <p>First,read each question at the top of the screen.</p>
-                        <p>Then read the choices below.</p>
-                        <p>Select your answer by clicking on it.Then hit <b>OK</b></p>
-                        <p>If you want to choose a dofferent answer,then click on <b>RESET</b>.</p>
-                        <p>Once you complete three rounds,the vault will open to reveal your reward!</p>
-                        <p>Click the <b>?</b>for help and to hear these directions again.</p>
-                    </div>
-                    <div class="instruction-video-container">
-                        <video autoplay preload="auto">
-  <source src="assets/video/word_vault_help.mp4" type="video/mp4">
-</video>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <app-question [currentQuestion]="questions[index]"></app-question>
+    <!-- <app-animate></app-animate> -->
+    <div class="animate-container" #sprImage [style.background-position]="">
+      <img class="reward-image" [src]="responseData.vaultImage" *ngIf='showReward' />
     </div>
-    <div class="footer">
-        <div *ngFor="let screen of screenIndicators" [ngClass]="{'active-screen': screen.isActive}">
-            <!-- <span ></span> -->
+    <app-answer [currentAnswer]="answers[index]" [tryCount]="tryCount" [correctOption]="currentQuesObj[index].correctAnswer"
+      [currentIndex]="index"></app-answer>
+    <app-validation (currentIndex)="updateIndex($event)" [currentQuestion]="currentQuesObj[index]" [isLastQuestion]="disableReset"></app-validation>
+  </section>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content" tabindex="0" #closeButton>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span class="sr-only">close</span>
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body" tabindex="0">
+          <div class="word-vault-help">
+            <b style="font-size: 18px;
+                        margin-bottom: 8px">Word vault Help</b>
+            <p>Welcome!</p>
+            <p>in this activity,you will us your reading skills to crack open this vault.</p>
+            <p>First,read each question at the top of the screen.</p>
+            <p>Then read the choices below.</p>
+            <p>Select your answer by clicking on it.Then hit
+              <b>OK</b>
+            </p>
+            <p>If you want to choose a dofferent answer,then click on
+              <b>RESET</b>.</p>
+            <p>Once you complete three rounds,the vault will open to reveal your reward!</p>
+            <p>Click the
+              <b>?</b>for help and to hear these directions again.</p>
+          </div>
+          <div class="instruction-video-container">
+            <video autoplay preload="auto">
+              <source src="assets/video/word_vault_help.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
+  <div class="footer">
+    <div *ngFor="let screen of screenIndicators" [ngClass]="{'active-screen': screen.isActive}">
+      <!-- <span ></span> -->
+    </div>
+  </div>
 </div>
