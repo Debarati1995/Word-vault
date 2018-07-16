@@ -1,8 +1,9 @@
 <div class="answer-container">
 
-    <div #answerContainer class="answer" tabindex="0" *ngFor=" let answer of answers;let $index = index" [ngClass]="(tryCount === 2 && !answer.isSelected && answer.isCorrect) ? 'correct': ''" (click)="OnAnswerSelected($event, $index)"  (keydown)="onKeyDown($event,$index)">
+    <div aria-live="assertive" #answerContainer class="answer" tabindex="0" *ngFor=" let answer of answers;let $index = index" [ngClass]="(tryCount === 2 && !answer.isSelected && answer.isCorrect) ? 'correct': ''" (click)="OnAnswerSelected($event, $index)"  (keydown)="onKeyDown($event,$index)">
+            <span #dynamicdata class="sr-only"></span>
             <!-- [ngClass]="(tryCount === 2 && !answer.isSelected && answer.isCorrect) ? 'correct': ((tryCount === 2 && answer.isSelected) ? 'wrong': '')" -->
-        <div class="indicator"> <img class="indicator-img" [src]="answer.isSelected ? (answer.isCorrect? 'assets/images/smiley-correct.png':'assets/images/smiley-selected.png' ): 'assets/images/answer-option.png'"  alt="" /></div>
+        <div class="indicator"> <img class="indicator-img" [src]="answer.isSelected ? (answer.isCorrect? 'assets/images/smiley-correct.png':'assets/images/smiley-selected.png' ): 'assets/images/answer-option.png'"  alt="" /></div>   
         {{answer.ansText}}
     </div>
 

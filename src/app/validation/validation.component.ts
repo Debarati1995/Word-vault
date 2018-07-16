@@ -20,6 +20,7 @@ export class ValidationComponent implements OnInit {
   indexSubscription: Subscription;
   enableOkButton;
   tryCount = 0;
+
   constructor(private service: QuestionAnswerService) { }
 
   ngOnInit() {
