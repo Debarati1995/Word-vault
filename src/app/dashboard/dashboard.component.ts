@@ -114,9 +114,14 @@ export class DashboardComponent implements OnInit, OnChanges {
       if (this.index < (this.questions.length - 1)) {
         if (obj.isEmit) {
           this.getVaultAnimation(this.frames[this.vaultIndex].start, this.frames[this.vaultIndex].end);
-          this.soundService.play(this.audios[0]);
+          if (obj.tryCount === 2 && obj.isEmit) {
+            this.soundService.play(this.audios[6]);
+          } else {
+            this.soundService.play(this.audios[0]);
+          }
         } else {
           this.showCorrectAns = true;
+          this.soundService.play(this.audios[5]);
         }
         setTimeout(() => {
           this.index++;

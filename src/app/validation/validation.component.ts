@@ -40,6 +40,9 @@ export class ValidationComponent implements OnInit {
     // console.log(this.currentQuestion.correctAnswer);
     // debugger;
     if (parseInt(this.currentQuestion.correctAnswer) === this.ansIndex + 1) {
+      if (this.tryCount === 1) {
+        this.tryCount++;
+      }
       this.currentIndex.emit({ 'isEmit': true, 'tryCount': this.tryCount });
       this.tryCount = 0;
       this.enableOkButton = false;

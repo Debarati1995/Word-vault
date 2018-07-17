@@ -17,6 +17,14 @@
         {
             "path": "assets/audios/dl_vocabulary_completes_sentence_2.mp3",
             "isEnabled": "false"
+        },
+        {
+            "path": "assets/audios/here_correct_answers.mp3",
+            "isEnabled":"false"
+        },
+        {
+            "path": "assets/audios/you_got_it_1.mp3",
+            "isEnabled":"false"
         }
     ]
 }
